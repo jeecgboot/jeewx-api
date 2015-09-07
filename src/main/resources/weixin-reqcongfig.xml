@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weixin-req>
+    <req key="access_token" method="get" url="https://api.weixin.qq.com/cgi-bin/token?1=1"></req>
+    <req key="getcallbackip" method="get" url="https://api.weixin.qq.com/cgi-bin/getcallbackip?1=1"></req>
+    <req key="mediaUpload" method="post" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMediaUploadHandler" 
+    	 url="http://file.api.weixin.qq.com/cgi-bin/media/upload?1=1"></req>
+    <req key="mediaget" method="get" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMediaDownHandler" 
+         url="http://file.api.weixin.qq.com/cgi-bin/media/get?1=1"></req>
+    
+    <!-- 客服接口 -->
+    <req key="kfaccountAdd" method="post" datatype="json" url="https://api.weixin.qq.com/customservice/kfaccount/add?1=1"></req>
+    <req key="kfaccountUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/customservice/kfaccount/update?1=1"></req>
+    <req key="kfaccountDel" method="post" datatype="json" url="https://api.weixin.qq.com/customservice/kfacount/del?1=1"></req>
+    <req key="kfaccountUploadheadimg" method="post" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMediaUploadHandler" 
+    	 url="http://api.weixin.qq.com/customservice/kfacount/uploadheadimg?1=1"></req>
+    <req key="getkflist" method="get" url="https://api.weixin.qq.com/cgi-bin/customservice/getkflist?1=1"></req>
+    <req key="getonlinekflist" method="get" url="https://api.weixin.qq.com/cgi-bin/customservice/getonlinekflist?1=1"></req>
+    
+    <req key="customsend" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/message/custom/send?1=1"></req>
+    
+    <req key="industryTemplateSet" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/template/api_set_industry?1=1"></req>
+    <req key="industryTemplateAdd" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/template/api_add_template?1=1"></req>
+    
+    <req key="industryTemplateMessageSend" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/message/template/send?1=1"
+    	mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqTemplateMessageHandler"></req>
+    <!-- update begin Author:luobaoli  Date:20150715 for：增加“获取自动回复规则”功能接口 -->
+    <req key="autoReplyRuleGet" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/get_current_autoreply_info?1=1"></req>
+    <!-- update end Author:luobaoli  Date:20150715 for：增加“获取自动回复规则”功能接口  -->
+    
+    
+    
+    
+    <!-- 用户分组管理 -->
+    <req key="groupCreate" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/create?1=1"></req>
+    <req key="groupsGet" method="get" datatype="param" url="https://api.weixin.qq.com/cgi-bin/groups/get?1=1"></req>
+    <req key="groupsGetid" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/getid?1=1"></req>
+    <req key="groupUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/update?1=1"></req>
+    <req key="groupMembersUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/members/update?1=1"></req>
+    <req key="batchGroupMembersUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate?1=1"></req>
+    <req key="userRemarkUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/user/info/updateremark?1=1"></req>
+     <!-- sub.获取用户详细信息 -->
+    <req key="getUserBaseInfo" method="get" datatype="param" url="https://api.weixin.qq.com/cgi-bin/user/info?1=1"></req>
+    <req key="getUserInfoList" method="get" datatype="param" url="https://api.weixin.qq.com/cgi-bin/user/get?1=1"></req>
+     <!-- 删除分组 -->
+    <req key="groupDelete" method="post" datatype="json" url="https://api.weixin.qq.com/cgi-bin/groups/delete?1=1"></req>
+    
+    <!-- 菜单管理 -->
+    <req key="menuCreate" method="post" datatype="json" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMenuCreateHandler"
+    			url=" https://api.weixin.qq.com/cgi-bin/menu/create?1=1"></req>
+    <req key="menuGet" method="get" datatype="param" url=" https://api.weixin.qq.com/cgi-bin/menu/get?1=1"></req>
+    <req key="menuDelete" method="get" datatype="param" url=" https://api.weixin.qq.com/cgi-bin/menu/delete?1=1"></req>
+    <!-- update begin Author:luobaoli  Date:20150714 for：增加“获取自定义菜单配置接口”功能接口的相关配置信息 update for 注释中不允许出现字符串 两杠 -->
+    <req key="menuConfigureGet" method="get" datatype="param" url="https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?1=1"></req>
+    <!-- update begin Author:luobaoli  Date:20150714 for：增加“获取自定义菜单配置接口”功能接口的相关配置信息 -->
+    <!-- 二维码管理-->
+    <req key="qrcodeCreate" method="post" datatype="json" url=" https://api.weixin.qq.com/cgi-bin/qrcode/create?1=1"></req>
+    <req key="shorturlCreate" method="post" datatype="json" url=" https://api.weixin.qq.com/cgi-bin/shorturl?1=1"></req>
+    
+    <!-- 微信卡券 -->
+    <req key="getGrcodeInfo" method="post" datatype="json" url="https://api.weixin.qq.com/card/qrcode/create?1=1"></req>
+    <req key="getGetticket" method="get" datatype="json" url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=wx_card"></req>
+    <req key="getLocationInfo" method="post" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqLogoUploadHandler" 
+    	 url="https://api.weixin.qq.com/cgi-bin/media/uploadimg?1=1"></req>
+    <req key="getBatchadd" method="post" datatype="json" url="https://api.weixin.qq.com/card/location/batchadd?1=1"></req>
+    <req key="getBatchget" method="post" datatype="json" url="https://api.weixin.qq.com/card/location/batchget?1=1"></req>
+    <req key="getGetcolors" method="post" datatype="json" url="https://api.weixin.qq.com/card/getcolors?1=1"></req>
+    <req key="getCardInfo" method="post" datatype="json" url="https://api.weixin.qq.com/card/create?1=1"></req>
+    
+    <!-- 用户分析数据接口 -->
+    <req key="getUserSummary" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getusersummary?1=1"></req>
+    <req key="getUserCumulate" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getusercumulate?1=1"></req>
+    
+    <!-- 图文分析数据接口 -->
+    <req key="getArticleSummary" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getarticlesummary?1=1"></req>
+    <req key="getArticleTotal" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getarticletotal?1=1"></req>
+    <req key="getUserRead" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getuserread?1=1"></req>
+    <req key="getUserReadHour" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getuserreadhour?1=1"></req>
+    <req key="getUserShare" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getusershare?1=1"></req>
+    <req key="getUserShareHour" method="post" datatype="json" url="https://api.weixin.qq.com/datacube/getusersharehour?1=1"></req>
+</weixin-req>
