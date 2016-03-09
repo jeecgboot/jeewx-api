@@ -15,7 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<commons-beanutils.version>1.7.0</commons-beanutils.version>
-		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-chain.version>1.2</commons-chain.version>
 		<commons-codec.version>1.6</commons-codec.version>
 		<junit.version>4.7</junit.version>
