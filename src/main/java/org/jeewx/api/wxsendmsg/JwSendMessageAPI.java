@@ -7,32 +7,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
 import net.sf.json.JSONObject;
-
-import org.apache.commons.lang3.StringUtils;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+import org.jeewx.api.core.common.HttpPostUtil;
 import org.jeewx.api.core.common.WxstoreUtils;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.jeewx.api.core.req.model.user.Group;
 import org.jeewx.api.core.util.WeiXinReqUtil;
 import org.jeewx.api.wxbase.wxmedia.model.WxArticlesRequest;
-import org.jeewx.api.wxbase.wxmedia.model.WxArticlesRequestByMaterial;
-import org.jeewx.api.wxbase.wxmedia.model.WxArticlesRespponseByMaterial;
-import org.jeewx.api.wxbase.wxmedia.model.WxCountResponse;
-import org.jeewx.api.wxbase.wxmedia.model.WxDescriptionRequest;
-import org.jeewx.api.wxbase.wxmedia.model.WxMediaForMaterial;
-import org.jeewx.api.wxbase.wxmedia.model.WxMediaForMaterialResponse;
-import org.jeewx.api.wxbase.wxmedia.model.WxNews;
-import org.jeewx.api.wxbase.wxmedia.model.WxUpdateArticle;
 import org.jeewx.api.wxsendmsg.model.SendMessageReport;
 import org.jeewx.api.wxsendmsg.model.SendMessageResponse;
 import org.jeewx.api.wxsendmsg.model.WxArticle;
 import org.jeewx.api.wxsendmsg.model.WxArticlesResponse;
 import org.jeewx.api.wxsendmsg.model.WxMedia;
 import org.jeewx.api.wxsendmsg.model.WxMediaResponse;
+import org.jeewx.api.wxsendmsg.util.ReadImgUrls;
 import org.jeewx.api.wxuser.user.model.Wxuser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +44,108 @@ public class JwSendMessageAPI {
 	private static String message_delete_url = "https://api.weixin.qq.com/cgi-bin/message/mass/delete?access_token=ACCESS_TOKEN";
 	// 查询群发消息发送状态URL
 	private static String message_get_url = "https://api.weixin.qq.com/cgi-bin/message/mass/get?access_token=ACCESS_TOKEN";
-			
+	//上传图文消息内的图片获取URL【订阅号与服务号认证后均可用】
+	private static String uploadimg_url = "https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=ACCESS_TOKEN";
+	
+	
+	
+	/**
+	 * （群发图片上传）批量上传群发图文中的图片
+	 * @param content		图文正文内容
+	 * @param accesstoken	微信公众号Token
+	 * @param baseImageUrl	图片项目根路径
+	 * @param domain	           图文中图片域名
+	 * @return
+	 */
+	public static String uploadArticleImgs(String content,String accesstoken,String baseImageUrl,String domain){
+		try {
+			String[] urls = ReadImgUrls.getImgs(content);
+			for(String imgurl:urls){
+				if(imgurl.indexOf("mmbiz.qpic.cn")!=-1){
+					continue;
+				}
+//				System.out.println("----------------imgurl------------------"+imgurl);
+				String tempimgurl = imgurl;
+				tempimgurl = tempimgurl.replace(domain,"");
+				tempimgurl = baseImageUrl + tempimgurl;
+				String newUrl = JwSendMessageAPI.uploadImg(accesstoken, tempimgurl);
+//				if(oConvertUtils.isEmpty(newUrl)){
+//					throw new BusinessException("正文图片同步微信失败，请确认格式是否正确!");
+//				}
+//				System.out.println("----------------newUrl------------------"+newUrl);
+				content = content.replace(imgurl, newUrl);
+			}
+		} catch (Exception e) {
+			System.err.println(e.toString());
+		}
+		
+		return content;
+	}
+	
+	/**
+	 * 上传图文消息内的图片获取URL【订阅号与服务号认证后均可用】
+	 * 请注意，本接口所上传的图片不占用公众号的素材库中图片数量的5000个的限制。图片仅支持jpg/png格式，大小必须在1MB以下。
+	 * @param accesstoken
+	 * @param filePath
+	 * @param fileName
+	 * @return
+	 * @throws Exception 
+	 */
+	public static String uploadImg(String accesstoken, String filePath){
+		try {
+			if (accesstoken != null) {
+				String requestUrl = uploadimg_url.replace("ACCESS_TOKEN", accesstoken);
+//				File file = new File(filePath);
+//				String contentType = WeiXinReqUtil.getFileContentType(filePath.substring(filePath.lastIndexOf(".") + 1));
+//				JSONObject result = WxstoreUtils.uploadMediaFile(requestUrl, file, contentType);
+				HttpPostUtil u = new HttpPostUtil(requestUrl);
+				u.addFileParameter("img", new File(filePath));
+				JSONObject result = JSONObject.fromObject(new String(u.send()));
+				if(result!=null){
+					if(result.containsKey("url")){
+						return result.getString("url");
+					}else{
+						System.err.println(result.toString());
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.err.println(e.toString());
+		}
+		return "";
+	}
+	
+	//add--begin--author--ty---Date:20170526---for:图片同步微信返回JSONObject
+	/**
+	 * 上传图文消息内的图片获取URL【订阅号与服务号认证后均可用]
+	 * @param accesstoken
+	 * @param filePath
+	 * @return {"url":""}或者
+	 * {"errmsg":"","errcode":40001}
+	 */
+	public static JSONObject uploadImgReturnObj(String accesstoken, String filePath){
+		JSONObject result=new JSONObject();
+		try {
+			if (accesstoken != null) {
+				String requestUrl = uploadimg_url.replace("ACCESS_TOKEN", accesstoken);
+				HttpPostUtil u = new HttpPostUtil(requestUrl);
+				u.addFileParameter("img", new File(filePath));
+				result = JSONObject.fromObject(new String(u.send()));
+				if(result!=null){
+					if(!result.containsKey("url")){
+						System.err.println(result.toString());
+					}
+				}
+			}
+		} catch (Exception e) {
+			result.put("errmsg", e.toString());
+			result.put("errcode", "");
+			System.err.println(e.toString());
+		}
+		return result;
+	}
+	//add--end--author--ty---Date:20170526---for:图片同步微信返回JSONObject
+	
 	/**
 	 * 图文消息预览
 	 * 

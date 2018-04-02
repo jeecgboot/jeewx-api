@@ -26,9 +26,9 @@ import org.jeewx.api.wxshop.model.ShopRtnInfo;
  */
 public class JwShopAPI {
 	// 创建门店
-	private static String create_shop_url = "http://api.weixin.qq.com/cgi-bin/poi/addpoi?access_token=TOKEN";
+	private static String create_shop_url = "https://api.weixin.qq.com/cgi-bin/poi/addpoi?access_token=TOKEN";
 	// 查询门店信息
-	private static String get_shop_url = "http://api.weixin.qq.com/cgi-bin/poi/getpoi?access_token=TOKEN";
+	private static String get_shop_url = "https://api.weixin.qq.com/cgi-bin/poi/getpoi?access_token=TOKEN";
 	// 查询门店列表
 	private static String search_shop_url = "https://api.weixin.qq.com/cgi-bin/poi/getpoilist?access_token=TOKEN";
 	// 删除门店
@@ -38,7 +38,7 @@ public class JwShopAPI {
 	// 修改门店服务信息
 	private static String updatebystatus_shop_url = "https://api.weixin.qq.com/cgi-bin/poi/updatepoi?access_token=TOKEN";
 	// 门店类目表
-	private static String shop_category_url = "http://api.weixin.qq.com/cgi-bin/api_getwxcategory?access_token=TOKEN";
+	private static String shop_category_url = "https://api.weixin.qq.com/cgi-bin/api_getwxcategory?access_token=TOKEN";
 		
 	
 	/**

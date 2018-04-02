@@ -12,6 +12,10 @@ public class WeixinButton {
 	
 	private String url;
 	
+	private String appid;
+	
+	private String pagepath;
+	
 	private List<WeixinButton> sub_button;
 
 	public String getType() {
@@ -53,5 +57,20 @@ public class WeixinButton {
 	public void setSub_button(List<WeixinButton> sub_button) {
 		this.sub_button = sub_button;
 	}
-	
+
+	public String getAppid() {
+		return appid;
+	}
+
+	public void setAppid(String appid) {
+		this.appid = appid;
+	}
+
+	public String getPagepath() {
+		return pagepath;
+	}
+
+	public void setPagepath(String pagepath) {
+		this.pagepath = pagepath;
+	}
 }

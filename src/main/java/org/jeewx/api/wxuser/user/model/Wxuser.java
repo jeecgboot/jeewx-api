@@ -31,11 +31,27 @@ public class Wxuser {
 	private java.lang.String headimgurl;
 	/**用户关注时间*/
 	private java.lang.String subscribe_time;
-	/**公众号*/
+	/**用户粉丝唯一ID*/
 	private java.lang.String unionid;
-	
+	/**用户被打上的标签ID列表*/
+	private String[] tagid_list;
+	/**粉丝备注*/
 	private String remark;
+	/**用户所在的分组ID（兼容旧的用户分组接口）*/
+	private Integer groupid;
 	
+	public Integer getGroupid() {
+		return groupid;
+	}
+	public void setGroupid(Integer groupid) {
+		this.groupid = groupid;
+	}
+	public String[] getTagid_list() {
+		return tagid_list;
+	}
+	public void setTagid_list(String[] tagid_list) {
+		this.tagid_list = tagid_list;
+	}
 	public java.lang.Integer getSubscribe() {
 		return subscribe;
 	}

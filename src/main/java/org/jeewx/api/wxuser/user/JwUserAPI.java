@@ -6,11 +6,13 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.jeewx.api.core.common.WxstoreUtils;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.jeewx.api.core.req.WeiXinReqService;
-import org.jeewx.api.core.req.model.user.UserBaseInfoGet;
 import org.jeewx.api.core.req.model.user.UserInfoListGet;
 import org.jeewx.api.wxuser.user.model.Wxuser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 微信--用户
@@ -19,8 +21,11 @@ import org.jeewx.api.wxuser.user.model.Wxuser;
  * 
  */
 public class JwUserAPI {
+	private static Logger logger = LoggerFactory.getLogger(JwUserAPI.class);
+	//获取用户基本信息（包括UnionID机制）
+    private static String GET_USER_URL = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 
-
+    
 	/**
 	 * 根据user_openid 获取关注用户的基本信息
 	 * 
@@ -30,10 +35,9 @@ public class JwUserAPI {
 	 */
 	public static Wxuser  getWxuser(String accesstoken,String user_openid) throws WexinReqException {
 		if (accesstoken != null) {
-			UserBaseInfoGet userBaseInfoGet = new UserBaseInfoGet();
-			userBaseInfoGet.setAccess_token(accesstoken);
-			userBaseInfoGet.setOpenid(user_openid);
-			JSONObject result = WeiXinReqService.getInstance().doWeinxinReqJson(userBaseInfoGet);
+			 String requestUrl = GET_USER_URL.replace("ACCESS_TOKEN", accesstoken).replace("OPENID", user_openid);
+			 JSONObject result = WxstoreUtils.httpRequest(requestUrl, "POST", null);
+			logger.info(result.toString());
 			// 正常返回
 			Wxuser wxuser = null;
 			Object error = result.get("errcode");

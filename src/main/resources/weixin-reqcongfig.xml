@@ -12,7 +12,7 @@
     <req key="kfaccountUpdate" method="post" datatype="json" url="https://api.weixin.qq.com/customservice/kfaccount/update?1=1"></req>
     <req key="kfaccountDel" method="post" datatype="json" url="https://api.weixin.qq.com/customservice/kfacount/del?1=1"></req>
     <req key="kfaccountUploadheadimg" method="post" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMediaUploadHandler" 
-    	 url="http://api.weixin.qq.com/customservice/kfacount/uploadheadimg?1=1"></req>
+    	 url="https://api.weixin.qq.com/customservice/kfacount/uploadheadimg?1=1"></req>
     <req key="getkflist" method="get" url="https://api.weixin.qq.com/cgi-bin/customservice/getkflist?1=1"></req>
     <req key="getonlinekflist" method="get" url="https://api.weixin.qq.com/cgi-bin/customservice/getonlinekflist?1=1"></req>
     
@@ -46,7 +46,7 @@
     
     <!-- 菜单管理 -->
     <req key="menuCreate" method="post" datatype="json" mappingHandler="org.jeewx.api.core.handler.impl.WeixinReqMenuCreateHandler"
-    			url=" https://api.weixin.qq.com/cgi-bin/menu/create?1=1"></req>
+    			url="https://api.weixin.qq.com/cgi-bin/menu/create?1=1"></req>
     <req key="menuGet" method="get" datatype="param" url=" https://api.weixin.qq.com/cgi-bin/menu/get?1=1"></req>
     <req key="menuDelete" method="get" datatype="param" url=" https://api.weixin.qq.com/cgi-bin/menu/delete?1=1"></req>
     <!-- update begin Author:luobaoli  Date:20150714 for：增加“获取自定义菜单配置接口”功能接口的相关配置信息 update for 注释中不允许出现字符串 两杠 -->

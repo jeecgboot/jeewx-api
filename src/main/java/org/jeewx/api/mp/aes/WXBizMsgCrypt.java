@@ -14,6 +14,7 @@
 package org.jeewx.api.mp.aes;
 
 import java.nio.charset.Charset;
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -105,6 +106,13 @@ public class WXBizMsgCrypt {
 	String encrypt(String randomStr, String text) throws AesException {
 		ByteGroup byteCollector = new ByteGroup();
 		byte[] randomStrBytes = randomStr.getBytes(CHARSET);
+		try {
+			 SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+			 secureRandom.setSeed(text.getBytes());
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+      
 		byte[] textBytes = text.getBytes(CHARSET);
 		byte[] networkBytesOrder = getNetworkBytesOrder(textBytes.length);
 		byte[] appidBytes = appId.getBytes(CHARSET);
@@ -121,6 +129,7 @@ public class WXBizMsgCrypt {
 
 		// 获得最终的字节流, 未加密
 		byte[] unencrypted = byteCollector.toBytes();
+		
 
 		try {
 			// 设置加密模式为AES的CBC模式

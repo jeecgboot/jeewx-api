@@ -14,8 +14,8 @@ import org.jeewx.api.wxbase.wxtoken.JwTokenAPI;
 
 public class Test {
 
-	private static String appid = "wxa842e07813a1380a";
-	private static String appscret = "33df24d6e663b9ec31e4f6347ce3c256";
+	private static String appid = "wx00737224cb9dbc7d";
+	private static String appscret = "b9479ebdb58d1c6b6efd4171ebe718b5";
 	
 	public static void main(String[] args) throws WexinReqException, UnsupportedEncodingException {
 		Test t = new Test();
@@ -26,9 +26,9 @@ public class Test {
 		//测试  获取图文群发每日数据
 //		t.getArticleSummary();
 		//获取图文群发总数据
-		//t.getArticleTotal();
+		t.getArticleTotal();
 		//获取图文统计数据
-		t.getUserRead();
+//		t.getUserRead();
 		//获取图文统计分时数据
 //		t.getUserReadHour();
 		//获取图文分享转发数据
@@ -84,7 +84,7 @@ public class Test {
 	@SuppressWarnings("static-access")
 	public void getUserRead() throws WexinReqException{
 		JwGraphicAnalysisAPI jga = new JwGraphicAnalysisAPI();
-		List<GraphicAnalysisRtnInfo> graphicAnalysisRtnInfoList = jga.getUserRead(getAccessToken(), "2015-05-09", "2015-05-11");
+		List<GraphicAnalysisRtnInfo> graphicAnalysisRtnInfoList = jga.getUserRead(getAccessToken(), "2015-01-29", "2015-01-30");
 		
 		for (GraphicAnalysisRtnInfo graphicAnalysisRtnInfo : graphicAnalysisRtnInfoList) {
 			System.out.println(JSONHelper.bean2json(graphicAnalysisRtnInfo));
