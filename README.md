@@ -1,3 +1,7 @@
+JEEWX-API 微信极速SDK
+
+最新版本： 1.2（发布日期：20180402）
+
 1、jeewx-api概述
 
   JEEWX-API 是第一个微信公众平台Java版极速SDK，基于jeewx-api 开发可以立即拥有简单易用的API，让开发更加轻松自如，节省更多时间. 最新1.2版本API已合并企业微信API和支付窗API。
