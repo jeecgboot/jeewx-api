@@ -5,18 +5,6 @@
 	<artifactId>jeewx-api</artifactId>
 	<version>1.2.0</version>
 
-	<distributionManagement>
-	  	<repository>
-            <id>jeecg</id>
-            <name>jeecg Repository</name>
-            <url>http://maven.jeecg.com:8090/nexus/content/repositories/jeecg</url>
-        </repository>
-        <snapshotRepository>
-	        <id>jeecg-snapshots</id>
-            <name>jeecg Snapshot Repository</name>
-            <url>http://maven.jeecg.com:8090/nexus/content/repositories/snapshots/</url>
-	    </snapshotRepository>
-	</distributionManagement>
 	<repositories>
 		<repository>
             <id>jeecg</id>

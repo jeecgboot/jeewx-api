@@ -48,3 +48,24 @@ public class JwMenuAPI {
 		AlipayMobilePublicMenuUpdateRequest request = new AlipayMobilePublicMenuUpdateRequest();
 		request.putOtherTextParam("app_auth_token", appAuthToken);
 		String json = JSONObject.toJSONString(model);
+		//update-begin-author:zhangjiaqiang Date:20161011 for:TASK #1422 【支付窗】3. 菜单同步，没有二级菜单，同步不成功
+		json = json.replace(",\"subButton\":[]", "");
+		//update-end-author:zhangjiaqiang Date:20161011 for:TASK #1422 【支付窗】3. 菜单同步，没有二级菜单，同步不成功
+		request.setBizContent(json);
+		return AlipayClientFactory.getAlipayClientInstance(config).execute(request);
+	}
+
+	/**
+	 * 查询菜单方法
+	 * 
+	 * @param appAuthToken
+	 * @return
+	 * @throws AlipayApiException
+	 */
+	public static AlipayMobilePublicMenuGetResponse menuGet(String appAuthToken,AlipayConfig config) throws AlipayApiException {
+		AlipayMobilePublicMenuGetRequest request = new AlipayMobilePublicMenuGetRequest();
+		request.putOtherTextParam("app_auth_token", appAuthToken);
+		return AlipayClientFactory.getAlipayClientInstance(config).execute(request);
+	}
+
+}
