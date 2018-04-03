@@ -1,29 +1,40 @@
-JEEWX-API 微信极速SDK
+JEEWX-API  ΢�ż���SDK
+===============
+  ��һ��JAVA�汾΢��SDK��������ҵ΢��SDK��֧����SDK��
+===============
+���°汾�� 1.2.0���������ڣ�20180403��
+������[www.jeewx.com](http://www.jeewx.com) 
 
-最新版本： 1.2（发布日期：20180402）
 
-1、jeewx-api概述
+һ����Ŀ���ܣ�
+-----------------------------------
+ JEEWX-API �ǵ�һ��JAVA��΢�ż���SDK��������ҵ΢��SDK��֧����SDK�����Կ��ٵĻ���������΢�Ź��ںš���ҵ΢�š�֧����Ӧ�ÿ�����
+ ���� jeewx-api ������������ӵ�м����õ�API���ÿ��������������磬��ʡ����ʱ�䡣
 
-  JEEWX-API 是第一个微信公众平台Java版极速SDK，基于jeewx-api 开发可以立即拥有简单易用的API，让开发更加轻松自如，节省更多时间. 最新1.2版本API已合并企业微信API和支付窗API。
- 
-2、免责声明
 
-	此Api为非官方版，由于微信和支付宝官方接口的随时可能调整升级，使用此Api有可能会出现一些问题。
+�����ӿڹ����嵥
+-----------------------------------
+*   �����ĵ��� [�ӿ�WIKI](http://wiki.jeecg.org/pages/viewpage.action?pageId=7110659)
 
-3、集成方法：
 
-	[1].maven 方式
-    在pom.xml 添加jeewx-api 1.2-SNAPSHOT依赖
-			<dependency>  
-				<groupId>org.jeewx</groupId>  
-				<artifactId>jeewx-api</artifactId>  
-				<version>1.2-SNAPSHOT</version>  
-			</dependency>
-	[2].非maven方式
-     直接拷贝jeewx-api-1.2-SNAPSHOT.jar进项目Lib中
+����Jeewx-api ���ɷ���
+-----------------------------------
+### [1].maven ��ʽ
+    ��pom.xml ����jeewx-api 1.2.0����
+	(���������˽������ο����ӵ�5.2�ų�jeecg��˽������Ȼ���������ʧ�ܵ������ https://blog.csdn.net/zhangdaiscott/article/details/50915206 )
 
-	代码测试示例
-	public static void main(String[] args) {
+    <dependency>  
+		<groupId>org.jeewx</groupId>  
+		<artifactId>jeewx-api</artifactId>  
+		<version>1.2.0</version>  
+	</dependency>
+	
+### [2].��maven��ʽ
+         ֱ�ӿ���jeewx-api-1.2.0.jar����ĿLib��
+		 
+### [3].����ʾ��
+
+    public static void main(String[] args) {
 		try {
 			String accesstoken = "yALYWcUbB1hdURQvJ-Qn1jbyq5E0qNraZixnxhC1wtN5sKrAfHifyFHHpRWiUnZ1xnhjN_dcnYqFAgpJqeJJybx2NOVoEDZd7SFLjwFIvM8AJv3a8EGarbY0jo--4vuqUNNhADAQJJ";
 			String user_openid = "o8QKAuAyDxxfyuBZ9ugSMR4SR5XQ";
@@ -32,36 +43,23 @@ JEEWX-API 微信极速SDK
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
+    
+
 	
-4、帮助文档
+�ġ���������
+-----------------------------------
+* 	QQ����Ⱥ�� ��289709451
+* 	������̳�� www.jeecg.org
 
-  为了大家更便捷的使用jeewx-api，请参照代码doc目录下的相关API文档和使用手册，
-  在线wiki请使用http://wiki.jeecg.org/pages/viewpage.action?pageId=7110659
 
-5、技术交流
 
-	QQ交流群： ④176031980、③289782002
+�塢���ο�������
+-----------------------------------
 
-6、扩展使用
+![github](http://img.blog.csdn.net/20180309122145466 "jeewx")
+![github](http://img.blog.csdn.net/20160323154916164?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
 
-	由于微信开发的接口会不断的增多或者调整，开发者可以按照下面三步骤进行扩展：
 
-	[1]添加请求参数对象，参考org.jeewx.api.core.req.model.menu.MenuCreate，定义自己的ReqType类型。
-
-	[2]添加微信请求的配置信息jeewx-api\src\main\resources\weixin-reqcongfig.xml，其中
-
-		Key：为定义的reqType类型
-
-		Method：为url请求方式，get/post
-
-		DataType：为参数形式，json或传统的url参数param
-
-		Url：为接口请求路径
-
-		MappingHandler：请求处理类，如果没有特殊处理，可以为空，如存在请求信息需要特殊处理，可以实现org.jeewx.api.core.handler.WeiXinReqHandler接口，开发者发送自己的请求获取微信数据。
-
-	[3]类型和配置信息处理好后，通过
-
-		org.jeewx.api.core.util.WeiXinReqService.getInstance().doWeinxinReq(ReqType类型对象)进行调用。
-
+    
