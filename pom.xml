@@ -28,6 +28,14 @@
 	
 	<repositories>
 		<repository>
+            <id>aliyun</id>
+            <name>aliyun Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+        </repository>
+		<repository>
             <id>jeecg</id>
             <name>jeecg Repository</name>
             <url>http://maven.jeecg.org/nexus/content/repositories/jeecg</url>
@@ -204,4 +212,26 @@
 		</dependency>
 		
 	</dependencies>
+	
+	<!-- 设置项目jdk，编码 -->
+	<build> 
+		<plugins>  
+			<plugin>  
+				<groupId>org.apache.maven.plugins</groupId>  
+				<artifactId>maven-compiler-plugin</artifactId>  
+				<configuration>  
+					<source>1.7</source>  
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>  
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+		</plugins>  
+	</build>  
 </project>
