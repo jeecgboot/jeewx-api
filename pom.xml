@@ -5,6 +5,27 @@
 	<artifactId>jeewx-api</artifactId>
 	<version>1.2.0</version>
 
+	<name>jeewx-api</name>
+	<description>JEEWX-API(微信极速SDK、企业微信SDK和支付窗SDK三合一).</description>
+	<url>http://www.jeecg.org</url>
+	<licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>jeecg</name>
+            <email>jeecg@sina.com</email>
+        </developer>
+    </developers>
+    <scm>
+      <connection>scm:git:https://github.com/zhangdaiscott/jeewx-api.git</connection>
+      <developerConnection>scm:git:https://github.com/zhangdaiscott/jeewx-api.git</developerConnection>
+      <url>https://github.com/zhangdaiscott/jeewx-api</url>
+	</scm>
+	
 	<repositories>
 		<repository>
             <id>jeecg</id>
@@ -65,12 +86,6 @@
 		  <artifactId>baidu-sdk</artifactId>
 		  <version>1.4.5</version>
 		</dependency> 
-		<!-- qiniu-bcs -->
-		<dependency>
-		  <groupId>com.qiniu</groupId>
-		  <artifactId>qiniu-java-sdk</artifactId>
-		  <version>6.1.7.1</version>
-		</dependency>
 		<!-- commons-collections -->
 		<dependency>
 			<groupId>commons-collections</groupId>
