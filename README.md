@@ -58,8 +58,8 @@ JEEWX-API  微信极速SDK
 五、二次开发体验
 -----------------------------------
 
-![github](http://img.blog.csdn.net/20180309122145466 "jeewx")
-![github](http://img.blog.csdn.net/20160323154916164?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
+![github](https://camo.githubusercontent.com/e196c5829ef14d25d30ee24ce81bfb6e0dfb49a4/687474703a2f2f7777772e6a656563672e6f72672f646174612f6174746163686d656e742f666f72756d2f3230313630362f32372f3132333530347936397276397a7178776576767636362e706e67 "jeewx")
+![github](https://camo.githubusercontent.com/7caeaa7c2d8e3f13bf40f3adb22a3c19213b8289/687474703a2f2f7374617469632e6f736368696e612e6e65742f75706c6f6164732f73706163652f323031362f303432342f3133313130355f42536c4e5f3933303839382e706e67 "jeewx")
 
 
     
