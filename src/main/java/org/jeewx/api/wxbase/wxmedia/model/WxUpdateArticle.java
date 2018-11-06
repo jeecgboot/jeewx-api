@@ -9,11 +9,11 @@ import org.jeewx.api.wxsendmsg.model.WxArticle;
 public class WxUpdateArticle {
 	private String media_id;
 	private int index;
-	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】
+ 
 	//原字段名称不符合微信接口条件
 	//private WxArticle article = new WxArticle();
 	private WxArticle articles = new WxArticle();
-	//-- update-end--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】
+ 
 	
 
 	public String getMedia_id() {

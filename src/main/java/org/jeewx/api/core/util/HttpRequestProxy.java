@@ -90,12 +90,10 @@ public class HttpRequestProxy {
 		URL url = new URL(reqUrl);
 		url_con = (HttpURLConnection) url.openConnection();
 		url_con.setRequestMethod("GET");
-		//--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-	    //设置网络超时
+ 	    //设置网络超时
 		url_con.setConnectTimeout(6000);  
 		url_con.setReadTimeout(6000);
-        //--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-		System.setProperty("sun.net.client.defaultConnectTimeout",
+ 		System.setProperty("sun.net.client.defaultConnectTimeout",
 				String.valueOf(HttpRequestProxy.connectTimeOut));// （单位：毫秒）jdk1.4换成这个,连接超时
 		System.setProperty("sun.net.client.defaultReadTimeout",
 				String.valueOf(HttpRequestProxy.readTimeOut)); // （单位：毫秒）jdk1.4换成这个,读操作超时
@@ -152,12 +150,10 @@ public class HttpRequestProxy {
 			URL url = new URL(queryUrl);
 			url_con = (HttpURLConnection) url.openConnection();
 			url_con.setRequestMethod("GET");
-			//--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-		    //设置网络超时
+ 		    //设置网络超时
 			url_con.setConnectTimeout(6000);  
 			url_con.setReadTimeout(6000);
-            //--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-			System.setProperty("sun.net.client.defaultConnectTimeout",
+ 			System.setProperty("sun.net.client.defaultConnectTimeout",
 					String.valueOf(HttpRequestProxy.connectTimeOut));// （单位：毫秒）jdk1.4换成这个,连接超时
 			System.setProperty("sun.net.client.defaultReadTimeout",
 					String.valueOf(HttpRequestProxy.readTimeOut)); // （单位：毫秒）jdk1.4换成这个,读操作超时
@@ -211,12 +207,10 @@ public class HttpRequestProxy {
 			String params = getMapParamsToStr(parameters,HttpRequestProxy.requestEncoding);
 			URL url = new URL(reqUrl);
 			url_con = (HttpURLConnection) url.openConnection();
-			//--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-		    //设置网络超时
+ 		    //设置网络超时
 			url_con.setConnectTimeout(6000);  
 			url_con.setReadTimeout(6000);
-            //--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-			url_con.setRequestMethod("POST");
+ 			url_con.setRequestMethod("POST");
 			System.setProperty("sun.net.client.defaultConnectTimeout",
 					String.valueOf(HttpRequestProxy.connectTimeOut));// （单位：毫秒）jdk1.4换成这个,连接超时
 			System.setProperty("sun.net.client.defaultReadTimeout",
@@ -273,21 +267,19 @@ public class HttpRequestProxy {
 
 			URL url = new URL(reqUrl+"&"+params);
 			url_con = (HttpURLConnection) url.openConnection();
-			//--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-		    //设置网络超时
+ 		    //设置网络超时
 			url_con.setConnectTimeout(6000);  
 			url_con.setReadTimeout(6000);
-            //--update-begin---author：scott-------date:20170417--------for:设置网络超时时间-------------------------
-			url_con.setRequestMethod("POST");
+ 			url_con.setRequestMethod("POST");
 			System.setProperty("sun.net.client.defaultConnectTimeout",
 					String.valueOf(HttpRequestProxy.connectTimeOut));// （单位：毫秒）jdk1.4换成这个,连接超时
 			System.setProperty("sun.net.client.defaultReadTimeout",
 					String.valueOf(HttpRequestProxy.readTimeOut)); // （单位：毫秒）jdk1.4换成这个,读操作超时
 			url_con.setDoOutput(true);
-			url_con.setRequestProperty("Accept", "application/json"); // 设置接收数据的格式  
-			url_con.setRequestProperty("Content-Type", "application/json"); // 设置发送数据的格式  
+			url_con.setRequestProperty("Accept", "application/json;charset=UTF-8"); // 设置接收数据的格式  
+			url_con.setRequestProperty("Content-Type", "application/json;charset=UTF-8"); // 设置发送数据的格式  
             
-			byte[] b = jsonData.toString().getBytes();
+			byte[] b = jsonData.toString().getBytes("UTF-8");
 			url_con.getOutputStream().write(b, 0, b.length);
 			url_con.getOutputStream().flush();
 			url_con.getOutputStream().close();

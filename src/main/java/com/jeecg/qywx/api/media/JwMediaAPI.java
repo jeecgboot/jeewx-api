@@ -68,8 +68,7 @@ public class JwMediaAPI {
 			File file = new File(filePath);
 			if(!file.exists()||!file.isFile()){
 				jsonobject = null;
-				//org.jeecgframework.core.util.LogUtil.info("------------文件不存在------------------------");
-			}else{
+ 			}else{
 				try{
 					String requestUrl="https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token="+ token + "&type="+fileType;  
 					//org.jeecgframework.core.util.LogUtil.info("------------------requestUr------------"+requestUrl);
@@ -187,8 +186,7 @@ public class JwMediaAPI {
 			File file = new File(filePath);
 			if(!file.exists()||!file.isFile()){
 				jsonobject = null;
-				//org.jeecgframework.core.util.LogUtil.info("------------文件不存在------------------------");
-			}else{
+ 			}else{
 				try{
 					String requestUrl="https://qyapi.weixin.qq.com/cgi-bin/material/add_material?agentid="+agentid+"&access_token="+ token + "&type="+fileType;  
 					//org.jeecgframework.core.util.LogUtil.info("------------------requestUr------------"+requestUrl);
@@ -354,8 +352,7 @@ public class JwMediaAPI {
 			File file = new File(filePath);
 			if(!file.exists()||!file.isFile()){
 				jsonobject = null;
-				//org.jeecgframework.core.util.LogUtil.info("------------文件不存在------------------------");
-			}else{
+ 			}else{
 				try{
 					String requestUrl="https://qyapi.weixin.qq.com/cgi-bin/media/uploadimg?access_token="+ token;  
 					//org.jeecgframework.core.util.LogUtil.info("------------------requestUr------------"+requestUrl);

@@ -160,7 +160,7 @@ public class JwGroupAPI {
 		//步骤二、发起调用
 		JSONObject result = WeiXinReqService.getInstance().doWeinxinReqJson(group);
 		//步骤三、对返回结果进行处理.
-		//author machaolin by 20150715 for 很奇怪微信服务器没有按接口说明返回{errcode:xxx,errmsg:xxx},而是返回了{}。
+ 
 		if("{}".equals(result.toString().trim())){
 			return "ok";
 		}else {

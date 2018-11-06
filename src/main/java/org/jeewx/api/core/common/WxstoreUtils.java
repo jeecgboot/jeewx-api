@@ -312,8 +312,7 @@ public class WxstoreUtils {
 		// 获取到返回Json请自行根据返回码获取相应的结果
 		return jsonObject;
 	}
-	
-	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写上传永久图片接口
+ 
 	/**
 	 * 上传多媒体文件到微信公众平台  图文素材上传使用
 	 *
@@ -411,7 +410,7 @@ public class WxstoreUtils {
 		}
 		return jsonObject;
 	}
-	//-- update-end--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写上传永久图片接口
+ 
 	public static void main(String[] args) {
 		String url = "https://api.weibo.com/oauth2/access_token?client_id=3016130400&client_secret=70f22fb9106282e6b5fb55a354f6da43&grant_type=authorization_code&code=9c15c07ea807274c7c413e1d9055d92d&redirect_uri=http://open.weibo.com";
 		JSONObject httpRequest = WxstoreUtils.httpRequest(url, "POST", null);

@@ -13,10 +13,10 @@ import org.jeewx.api.core.req.model.WeixinReqParam;
 import org.jeewx.api.core.req.model.menu.MenuCreate;
 import org.jeewx.api.core.req.model.menu.WeixinButton;
 import org.jeewx.api.core.util.HttpRequestProxy;
-import org.jeewx.api.core.util.WeiXinConstant;
 import org.jeewx.api.core.util.WeiXinReqUtil;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * 菜单创建的处理
@@ -62,7 +62,8 @@ public class WeixinReqMenuCreateHandler implements WeiXinReqHandler {
 			return json.append("]").toString();
 		}
 		List<WeixinButton> sub_button = null;
-		Gson gson = new Gson();
+		//解决Gson对网页链接中的转义字符问题，改为不转义字符
+		Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 		String objJson = "";
 		for(WeixinButton m : b){
 			sub_button = m.getSub_button();

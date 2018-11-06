@@ -3,9 +3,7 @@
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
-
-// ------------------------------------------------------------------------
-
+ 
 /**
  * 针对org.apache.commons.codec.binary.Base64，
  * 需要导入架包commons-codec-1.9（或commons-codec-1.8等其他版本）

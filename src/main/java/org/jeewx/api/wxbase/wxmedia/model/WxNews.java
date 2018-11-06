@@ -12,7 +12,7 @@ public class WxNews {
 	/** 媒体id */
 	private String total_count;
 	/** 图文消息的作者 */
-	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】
+ 
 	//微信接口返回的结果会是多个，使用list接收
 	//private WxItem item;
 	private List<WxItem> items; 

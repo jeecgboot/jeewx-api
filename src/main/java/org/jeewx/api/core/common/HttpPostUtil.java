@@ -96,23 +96,36 @@ public class HttpPostUtil {
 	private void writeFileParams() throws Exception {
 		Set<String> keySet = fileparams.keySet();
 		for (Iterator<String> it = keySet.iterator(); it.hasNext();) {
+ 
 			String name = it.next();
 			File value = fileparams.get(name);
-			ds.writeBytes("--" + boundary + "\r\n");
-			ds.writeBytes("Content-Disposition: form-data; name=\"" + name
-					+ "\"; filename=\"" + encode(value.getName()) + "\"\r\n");
-			ds.writeBytes("Content-Type: " + getContentType(value) + "\r\n");
-			ds.writeBytes("\r\n");
-			//update-begin-author:taoYan date:20180323 for:文件加入http请求，当文件非本地资源的时候需要作特殊处理--
+			String valuename = value.getName();
 			if(value.exists()){
+				ds.writeBytes("--" + boundary + "\r\n");
+				ds.writeBytes("Content-Disposition: form-data; name=\"" + name
+						+ "\"; filename=\"" + encode(valuename) + "\"\r\n");
+				ds.writeBytes("Content-Type: " + getContentType(value) + "\r\n");
+				ds.writeBytes("\r\n");
 				ds.write(getBytes(value));
 			}else{
 				String myFilePath = value.getPath();
 				if(myFilePath!=null && myFilePath.startsWith("http")){
-					ds.write(getURIFileBytes(myFilePath));
+					byte[] netFileBytes =  getURIFileBytes(myFilePath);
+					String lowerValueName = valuename.toLowerCase();
+					if(lowerValueName.endsWith(IMG_BMP)||lowerValueName.endsWith(IMG_GIF)||lowerValueName.endsWith(IMG_JPG)||lowerValueName.endsWith(IMG_PNG)){
+						valuename = encode(valuename);
+					}else{
+						valuename = System.currentTimeMillis()+getPicType(netFileBytes);
+					}
+					ds.writeBytes("--" + boundary + "\r\n");
+					ds.writeBytes("Content-Disposition: form-data; name=\"" + name
+							+ "\"; filename=\"" + valuename + "\"\r\n");
+					ds.writeBytes("Content-Type: " + getContentType(value) + "\r\n");
+					ds.writeBytes("\r\n");
+					ds.write(netFileBytes);
 				}
 			}
-			//update-end-author:taoYan date:20180323 for:文件加入http请求，当文件非本地资源的时候需要作特殊处理--
+ 
 			ds.writeBytes("\r\n");
 		}
 	}
@@ -172,6 +185,44 @@ public class HttpPostUtil {
     private String encode(String value) throws Exception{
     	return URLEncoder.encode(value, "UTF-8");
     }
+ 
+	public static final String IMG_JPG = ".jpg";
+	public static final String IMG_PNG = ".png";
+	public static final String IMG_GIF = ".gif";
+	public static final String IMG_BMP = ".bmp";
+    /**
+     * 根据文件流判断图片类型
+     * @param byte
+     * @return jpg/png/gif/bmp
+     */
+    public String getPicType(byte[] src) {
+    	StringBuilder stringBuilder = new StringBuilder();    
+        if (src == null || src.length <= 0) {    
+            return null;    
+        }    
+        for (int i = 0; i < 4; i++) {
+            int v = src[i] & 0xFF;    
+            String hv = Integer.toHexString(v);    
+            if (hv.length() < 2) {    
+                stringBuilder.append(0);    
+            }    
+            stringBuilder.append(hv);    
+        }    
+        String type = stringBuilder.toString().toUpperCase();
+        if (type.contains("FFD8FF")) {
+            return IMG_JPG;
+        } else if (type.contains("89504E47")) {
+            return IMG_PNG;
+        } else if (type.contains("47494638")) {
+            return IMG_GIF;
+        } else if (type.contains("424D")) {
+            return IMG_BMP;
+        }else{
+            return "";
+        }
+    }
+ 
+
 	public static void main(String[] args) throws Exception {
 		HttpPostUtil u = new HttpPostUtil("https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=i3um002Np_n-mgNVbPP9JEIfft7_hRq3eHE86slxI7Uh_5q0K5rFfLRnhD20HTCcFt92ulWnndpGlyiNgXi6UiWQqKxPCBsfYKmiY6Ws-isUVLaAFAXYO");
 		u.addFileParameter("img", new File("C:/Users/zhangdaihao/Desktop/2.png"));

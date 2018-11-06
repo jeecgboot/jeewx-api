@@ -374,8 +374,7 @@ public class JwMediaAPI {
 		return response.getMedia_id();
 
 	}
-
-	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写管理永久素材的接口
+ 
 	/**
 	 * 新增其他永久素材   
 	 * @param accesstoken
@@ -560,5 +559,5 @@ public class JwMediaAPI {
 				}
 		}
 	}
-	//-- update-end--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写管理永久素材的接口
+ 
 }
