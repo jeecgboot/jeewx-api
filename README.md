@@ -26,7 +26,7 @@ JEEWX-API  微信极速SDK
     <dependency>  
 		<groupId>org.jeewx</groupId>  
 		<artifactId>jeewx-api</artifactId>  
-		<version>1.2.0</version>  
+		<version>1.2.2</version>  
 	</dependency>
 	
 ### [2].非maven方式
