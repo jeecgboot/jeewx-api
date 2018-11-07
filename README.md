@@ -24,40 +24,11 @@ JEEWX-API  微信极速SDK
 三、Jeewx-api 集成方法
 -----------------------------------
 ### [1].maven 方式
-
-	第一步： 添加官方仓库
-	 <repositories>
-		<repository>
-            <id>aliyun</id>
-            <name>aliyun Repository</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-            <snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-        </repository>
-		<repository>
-            <id>jeecg</id>
-            <name>jeecg Repository</name>
-            <url>http://maven.jeecg.org/nexus/content/repositories/jeecg</url>
-            <snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-        </repository>
-		<repository>
-            <id>jeecg-snapshots</id>
-            <name>jeecg-snapshots Repository</name>
-            <url>http://maven.jeecg.org/nexus/content/repositories/snapshots</url>
-            <snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-        </repository>
-	</repositories>
-	
-    第二步： 在pom.xml 添加jeewx-api 1.2.2依赖
-    <dependency>  
-		<groupId>org.jeewx</groupId>  
-		<artifactId>jeewx-api</artifactId>  
-		<version>1.2.2</version>  
+    在pom.xml 添加jeewx-api 1.2.2依赖
+    <dependency>
+		<groupId>org.jeecgframework</groupId>
+		<artifactId>jeewx-api</artifactId>
+		<version>1.2.2</version>
 	</dependency>
 	
 ### [2].非maven方式
