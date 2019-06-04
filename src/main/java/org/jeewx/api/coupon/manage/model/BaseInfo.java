@@ -39,7 +39,8 @@ public class BaseInfo {
 	private boolean can_give_friend;
 	// 门店位置ID。
 	private List<Integer> location_id_list;
- 
+	
+	//update-begin----author:scott-----date:20150825---for:礼券获取详细信息报错处理-----
 	private List<String> js_oauth_uin_list;
 	public List<String> getJs_oauth_uin_list() {
 		return js_oauth_uin_list;
@@ -47,7 +48,7 @@ public class BaseInfo {
 	public void setJs_oauth_uin_list(List<String> js_oauth_uin_list) {
 		this.js_oauth_uin_list = js_oauth_uin_list;
 	}
- 
+	//update-end----author:scott-----date:20150825---for:礼券获取详细信息报错处理-----
 	
 	// 使用日期，有效期的信息。
 	private DateInfo date_info;

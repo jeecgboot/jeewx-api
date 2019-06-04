@@ -107,8 +107,9 @@ public class JwMenuAPI {
 		String msg = result.getString(WeiXinConstant.RETURN_ERROR_INFO_MSG);
 		return msg;
 	}
- 
- 
+	
+	//update-begin--Author:luobaoli  Date:20150714 for：增加“获取自定义菜单配置接口”功能接口
+	//update-begin--Author:luobaoli  Date:20150715 for：优化该方法的处理逻辑
 	/**
 	 * 获取自定义接口配置
 	 * @param accessToken
@@ -160,8 +161,8 @@ public class JwMenuAPI {
 		}
 		return customWeixinButtonConfig;
 	}
- 
- 
+	//update-end--Author:luobaoli  Date:20150715 for：优化该方法的处理逻辑
+	//update-end--Author:luobaoli  Date:20150714 for：增加“获取自定义菜单配置接口”功能接口
 	
 	public static void main(String[] args){
 		String s="";

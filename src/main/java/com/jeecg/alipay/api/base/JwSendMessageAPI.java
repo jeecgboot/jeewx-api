@@ -150,13 +150,14 @@ public class JwSendMessageAPI {
 		AlipayMobilePublicMessageSingleSendRequest request = new AlipayMobilePublicMessageSingleSendRequest();
 		request.putOtherTextParam("app_auth_token", appAuthToken);
 		String json = "";
- 
+		//update-begin--author:zhangjiaqiang Date:20161028 for:#1486 【支付窗】模板消息接口、推广二维码研究
 		json = JSONObject.toJSONString(model,SerializerFeature.WriteMapNullValue);
- 
+		//update-end--author:zhangjiaqiang Date:20161028 for:#1486 【支付窗】模板消息接口、推广二维码研究
 		request.setBizContent(json);
 		return AlipayClientFactory.getAlipayClientInstance(config).execute(request);
 	}
- 
+
+	//update-begin--author:zhangjiaqiang Date:20161028 for:#1486 【支付窗】模板消息接口、推广二维码研究
 	/**
 	 * 单发模板消息（新版API）
 	 * @param model
@@ -185,5 +186,5 @@ public class JwSendMessageAPI {
 		request.setBizContent(json.toJSONString());
 		return AlipayClientFactory.getAlipayClientInstance(config).execute(request);
 	}
- 
+	//update-end--author:zhangjiaqiang Date:20161028 for:#1486 【支付窗】模板消息接口、推广二维码研究
 }

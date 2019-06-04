@@ -12,11 +12,11 @@ public class WxItem {
 	/** 媒体id */
 	private String media_id;
 	/** 图文消息的作者 */
- 
+	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】
 	//微信接口返回的可能会是多个，使用list接收
 	//private WxArticle content;
 	private List<WxNewsArticle> contents;
- 
+	//-- update-end--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】
 	
 	/** 文件名称 */
 	private String name;

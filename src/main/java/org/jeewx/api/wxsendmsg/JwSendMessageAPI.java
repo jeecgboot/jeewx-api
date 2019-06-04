@@ -114,7 +114,8 @@ public class JwSendMessageAPI {
 		}
 		return "";
 	}
- 
+	
+	//add--begin--author--ty---Date:20170526---for:图片同步微信返回JSONObject
 	/**
 	 * 上传图文消息内的图片获取URL【订阅号与服务号认证后均可用]
 	 * @param accesstoken
@@ -143,7 +144,7 @@ public class JwSendMessageAPI {
 		}
 		return result;
 	}
- 
+	//add--end--author--ty---Date:20170526---for:图片同步微信返回JSONObject
 	
 	/**
 	 * 图文消息预览

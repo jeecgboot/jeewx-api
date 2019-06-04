@@ -350,7 +350,11 @@ public class JwMediaAPI {
 			} else {
 				// {"type":"TYPE","media_id":"MEDIA_ID","created_at":123456789}
 				mediaResource = new WxMediaForMaterialResponse();
-				mediaResource.setMedia_id(result.getString("media_id"));
+				if("thumb".equals(wx.getType())){
+					mediaResource.setMedia_id(result.getString("thumb_media_id"));
+				}else{
+					mediaResource.setMedia_id(result.getString("media_id"));
+				}
 				mediaResource.setUrl(result.getString("url"));
 			}
 			// return mediaResource;
@@ -374,7 +378,8 @@ public class JwMediaAPI {
 		return response.getMedia_id();
 
 	}
- 
+
+	//-- update-begin--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写管理永久素材的接口
 	/**
 	 * 新增其他永久素材   
 	 * @param accesstoken
@@ -396,7 +401,11 @@ public class JwMediaAPI {
 			} else {
 				logger.info("====新增其他永久素材  成功====result："+result.toString());
 				mediaResource = new WxMediaForMaterialResponse();
-				mediaResource.setMedia_id(result.getString("media_id"));
+				if("thumb".equals(type)){
+					mediaResource.setMedia_id(result.getString("thumb_media_id"));
+				}else{
+					mediaResource.setMedia_id(result.getString("media_id"));
+				}
 				mediaResource.setUrl(result.getString("url"));
 			}
 		}
@@ -559,5 +568,5 @@ public class JwMediaAPI {
 				}
 		}
 	}
- 
+	//-- update-end--Author:gengjiajia  Date:2016-11-28 for:TASK #1583 【图文管理】重写管理永久素材的接口
 }

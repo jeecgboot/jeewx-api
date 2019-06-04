@@ -3,7 +3,9 @@
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
- 
+
+// ------------------------------------------------------------------------
+
 package org.jeewx.api.mp.aes;
 
 import java.nio.charset.Charset;

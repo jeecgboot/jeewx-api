@@ -96,7 +96,7 @@ public class HttpPostUtil {
 	private void writeFileParams() throws Exception {
 		Set<String> keySet = fileparams.keySet();
 		for (Iterator<String> it = keySet.iterator(); it.hasNext();) {
- 
+			//update-begin-author:taoYan date:20180601 for:文件加入http请求，当文件非本地资源的时候需要作特殊处理--
 			String name = it.next();
 			File value = fileparams.get(name);
 			String valuename = value.getName();
@@ -125,7 +125,7 @@ public class HttpPostUtil {
 					ds.write(netFileBytes);
 				}
 			}
- 
+			//update-end-author:taoYan date:20180601 for:文件加入http请求，当文件非本地资源的时候需要作特殊处理--
 			ds.writeBytes("\r\n");
 		}
 	}
@@ -185,7 +185,8 @@ public class HttpPostUtil {
     private String encode(String value) throws Exception{
     	return URLEncoder.encode(value, "UTF-8");
     }
- 
+    
+	//update-begin-author:taoYan date:20180601 for:增加图片类型常量--
 	public static final String IMG_JPG = ".jpg";
 	public static final String IMG_PNG = ".png";
 	public static final String IMG_GIF = ".gif";
@@ -221,7 +222,7 @@ public class HttpPostUtil {
             return "";
         }
     }
- 
+  //update-end-author:taoYan date:20180601 for:根据文件流判断图片类型--
 
 	public static void main(String[] args) throws Exception {
 		HttpPostUtil u = new HttpPostUtil("https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=i3um002Np_n-mgNVbPP9JEIfft7_hRq3eHE86slxI7Uh_5q0K5rFfLRnhD20HTCcFt92ulWnndpGlyiNgXi6UiWQqKxPCBsfYKmiY6Ws-isUVLaAFAXYO");

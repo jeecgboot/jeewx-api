@@ -32,7 +32,7 @@ public class ReadImgUrls {
 				}
 			}
 		}
- 
+		//update-begin-author:taoYan date：20180531 for:TASK #2755 【图文素材】编辑器优化汇总-2
 		if(content.indexOf("background-image")>0){
 			String regEx_bg = "(background-image\\s*:\\s*url\\s*\\((&#39;)?http://\\S*\\);)";
 			p_image = Pattern.compile(regEx_bg, Pattern.CASE_INSENSITIVE);
@@ -56,7 +56,7 @@ public class ReadImgUrls {
 				}
 			}
 		}
- 
+		//update-end-author:taoYan date：20180531 for:TASK #2755 【图文素材】编辑器优化汇总-2
 		if (!"".equals(str)) {
 			images = str.split(",");
 		}
