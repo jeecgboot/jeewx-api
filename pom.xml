@@ -65,7 +65,7 @@
 		<commons-logging.version>1.0.4</commons-logging.version>
 		<jackson.version>1.8.4</jackson.version>
 		<json-lib.version>2.1</json-lib.version>
-		<fastjson-lib.version>1.1.37</fastjson-lib.version>
+		<fastjson-lib.version>1.2.31</fastjson-lib.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
 		<poi.version>3.9</poi.version>
