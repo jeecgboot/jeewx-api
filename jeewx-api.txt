@@ -1,0 +1,224 @@
+﻿
+※※※一.微信公众号接口※※※
+---------------------------------------------------------------------------------------
+***微信基础接口**
+ 
+微信基础接口    | 获取access_token    | org.jeewx.api.wxbase.wxtoken.JwTokenAPI.getAccessToken |
+微信基础接口    | 获取微信服务器IP地址   | org.jeewx.api.wxbase.wxserviceip.JwServiceIpAPI.getServiceIpList |
+微信基础接口    | 上传下载多媒体文件        | org.jeewx.api.wxbase.wxmedia.JwMediaAPI |
+
+发送消息             | 客服接口                                 | org.jeewx.api.wxsendmsg.JwKfaccountAPI |
+发送消息             | 获取自动回复规则                                 | org.jeewx.api.wxsendmsg.JwGetAutoReplyRuleAPI |
+
+用户管理             | 用户分组管理                       | org.jeewx.api.wxuser.group.JwGroupAPI |
+用户管理             | 设置用户备注名                  | org.jeewx.api.wxuser.user.JwUserAPI |
+用户管理             | 获取用户基本信息             | org.jeewx.api.wxuser.user.JwUserAPI |
+用户管理             | 获取用户列表                       | org.jeewx.api.wxuser.user.JwUserAPI |
+
+自定义菜单管理| 自定义菜单创建接口      | org.jeewx.api.wxmenu.JwMenuAPI |
+自定义菜单管理| 自定义菜单查询接口      | org.jeewx.api.wxmenu.JwMenuAPI |
+自定义菜单管理| 自定义菜单删除接口      | org.jeewx.api.wxmenu.JwMenuAPI |
+自定义菜单管理| 自定义菜单事件推送      |               
+自定义菜单管理| 获取自定义菜单配置接口      | org.jeewx.api.wxmenu.JwMenuAPI |              
+
+帐号管理             | 生成带参数的二维码        | org.jeewx.api.wxaccount.JwAccountAPI |
+帐号管理             | 长链接转短链接接口        | org.jeewx.api.wxaccount.JwAccountAPI |
+
+---------------------------------------------------------------------------------------
+***数据统计分析接口***
+
+数据统计接口    | 用户分析数据接口      | org.jeewx.api.report.datastatistics.useranalysis.JwUserAnalysisAPI | 
+数据统计接口    | 图文分析数据接口      | org.jeewx.api.report.datastatistics.graphicanalysis.JwGraphicAnalysisAPI |
+数据统计接口    | 接口分析数据接口      | org.jeewx.api.report.interfacesummary.JwInterfaceSummaryAPI |
+数据统计接口    | 消息分析数据接口      | org.jeewx.api.report.datacube.JwDataCubeAPI | 
+
+---------------------------------------------------------------------------------------
+***微信卡券***
+
+微信卡券 | 创建卡券 | org.jeewx.api.coupon.location.JwLocationAPI|
+微信卡券 | 卡券投放 | org.jeewx.api.coupon.qrcode.JwQrcodeAPI|
+微信卡券 | 卡券核销 | org.jeewx.api.coupon.consume.JwCardConsumeAPI|
+微信卡券 | 卡券管理 | org.jeewx.api.coupon.manage.JwCardManageAPI|
+
+---------------------------------------------------------------------------------------
+**客服接口***
+多客服      | 多客服接口| org.jeewx.api.customerService.multiCustomer.JwMultiCustomerAPI|
+ 
+---------------------------------------------------------------------------------------
+***微信群发消息***
+
+微信群发消息 | 发送消息 | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+
+---------------------------------------------------------------------------------------
+***微信模板消息***
+
+微信模板消息 | 设置行业信息  | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+微信模板消息 | 获取行业信息  | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+微信模板消息 | 获得模板ID | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+微信模板消息 | 获取模板列表 | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+微信模板消息 |  删除模板    | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+微信模板消息 | 发送模板消息 | org.jeewx.api.wxsendmsg.JwSendMessageAPI|
+
+---------------------------------------------------------------------------------------
+***用户标签管理***
+
+标签管理 	|	创建标签 	| 	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+标签管理 	|	获取公众号已创建的标签	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+标签管理 	|	编辑标签	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+标签管理	|	删除标签	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+标签管理	|	获取标签下粉丝列表	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+用户管理	|	批量为用户打标签	  	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+用户管理 	|	批量为用户取消标签	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+用户管理 	|	获取用户身上的标签列表	|	org.jeewx.api.wxuser.tag.JwTagAPI.java|
+ 
+---------------------------------------------------------------------------------------
+ ***微信小店接口**
+
+微信小店 | 商品接口-增加商品                                 | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-修改商品                                 | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-查询商品                                 | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-删除商品                                 | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-上传图片                                 | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-获取指定状态商品             | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-商品上下架                            | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-指定分类的所有子分类   | org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-指定子分类的所有SKU |  org.jeewx.api.wxstore.product.JwProductAPI|
+微信小店 | 商品接口-指定分类的所有属性        | org.jeewx.api.wxstore.product.JwProductAPI|
+
+微信小店 | 邮费模板-增加邮费模板                        | org.jeewx.api.wxstore.deliveryMoney.JwDeliveryMoneyAPI|
+微信小店 | 邮费模板-修改邮费模板                        | org.jeewx.api.wxstore.deliveryMoney.JwDeliveryMoneyAPI|
+微信小店 | 邮费模板-获取指定ID的邮费模板   | org.jeewx.api.wxstore.deliveryMoney.JwDeliveryMoneyAPI|
+微信小店 | 邮费模板-删除邮费模板                        | org.jeewx.api.wxstore.deliveryMoney.JwDeliveryMoneyAPI|
+微信小店 | 邮费模板-获取所有邮费模板              | org.jeewx.api.wxstore.deliveryMoney.JwDeliveryMoneyAPI|
+
+微信小店 | 分组接口-增加分组                                  | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+微信小店 | 分组接口-修改分组属性                        | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+微信小店 | 分组接口-根据分组ID获取分组        | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+微信小店 | 分组接口-删除分组                                  | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+微信小店 | 分组接口-获取所有分组                        | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+微信小店 | 分组接口-修改分组商品                        | org.jeewx.api.wxstore.group.JwGroupManangerAPI|
+
+微信小店 | 订单接口-根据订单ID获取订单详情   | org.jeewx.api.wxstore.order.JwOrderManagerAPI|
+微信小店 | 订单接口-根据订单状态/创建时间获取订单详情   | org.jeewx.api.wxstore.order.JwOrderManagerAPI|
+微信小店 | 订单接口-设置订单发货信息              | org.jeewx.api.wxstore.order.JwOrderManagerAPI|
+微信小店 | 订单接口-关闭订单                                  | org.jeewx.api.wxstore.order.JwOrderManagerAPI|
+
+微信小店 | 货架接口-增加货架                                  | org.jeewx.api.wxstore.shelf.JwShelfAPI|
+微信小店 | 货架接口-根据货架ID获取货架信息   | org.jeewx.api.wxstore.shelf.JwShelfAPI|
+微信小店 | 货架接口-获取所有货架                        | org.jeewx.api.wxstore.shelf.JwShelfAPI|
+微信小店 | 货架接口-修改货架                                  | org.jeewx.api.wxstore.shelf.JwShelfAPI|
+微信小店 | 货架接口-删除货架                                  | org.jeewx.api.wxstore.shelf.JwShelfAPI|
+
+微信小店 | 库存接口-增加库存                                 | org.jeewx.api.wxstore.stock.JwStockAPI|
+微信小店 | 库存接口-减少库存                                 | org.jeewx.api.wxstore.stock.JwStockAPI|
+
+
+※※※二.企业微信接口※※※
+---------------------------------------------------------------------------------------
+
+基础接口	|	获取access_token		|	com.jeecg.qywx.api.base.JwAccessTokenAPI.java|
+
+会话接口	|	创建会话				|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	获取会话				|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	修改会话				|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	退出会话				|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	清除会话				|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	会话中发送消息		|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+会话接口	|	设置用户消息			|	com.jeecg.qywx.api.conversation.ConversationAPI.java|
+
+部门接口	|	创建部门					|	com.jeecg.qywx.api.department.JwDepartmentAPI.java|
+部门接口	|	更新部门					|	com.jeecg.qywx.api.department.JwDepartmentAPI.java|
+部门接口	|	删除部门					|	com.jeecg.qywx.api.department.JwDepartmentAPI.java|
+部门接口	|	获取指定部门列表			|	com.jeecg.qywx.api.department.JwDepartmentAPI.java|
+部门接口	|	获取全部组织机构			|	com.jeecg.qywx.api.department.JwDepartmentAPI.java|
+
+素材接口	|	上传临时性素材				|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+素材接口	|	上传永久性图文素材			|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+素材接口	|	上传其他永久性素材			|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+素材接口	|	删除永久性素材				|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+素材接口	|	获取素材总数					|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+素材接口	|	上传图文消息内的图片			|	com.jeecg.qywx.api.media.JwMediaAPI.java|
+
+自定义菜单接口	|	创建应用菜单			|	com.jeecg.qywx.api.menu.JwMenuAPI.java|
+自定义菜单接口	|	删除菜单				|	com.jeecg.qywx.api.menu.JwMenuAPI.java|
+自定义菜单接口	|	获取菜单列表			|	com.jeecg.qywx.api.menu.JwMenuAPI.java|
+
+消息接口	|	发送文本信息					|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送图片信息					|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送音频信息					|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送视频消息					|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送媒体文件					|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送媒体文件消息				|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送消息使用图文素材			|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+消息接口	|	发送消息使用永久图文素材		|	com.jeecg.qywx.api.message.JwMessageAPI.java|
+
+成员接口	|	 创建成员				|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	 更新成员				|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	 删除成员				|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	 批量删除成员			|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	 获取成员				|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	获取部门下的成员		|	com.jeecg.qywx.api.user.JwUserAPI.java|
+成员接口	|	获取部门成员详情		|	com.jeecg.qywx.api.user.JwUserAPI.java|
+
+转换接口	|	userid转换成openid		|	com.jeecg.qywx.api.userandopenmsg.JwCardMessageAPI.java|
+转换接口	|	openid转换成userid		|	com.jeecg.qywx.api.userandopenmsg.JwCardMessageAPI.java|
+
+
+※※※三.支付窗接口※※※
+---------------------------------------------------------------------------------------
+用户接口	|	获取关注者列表		|	com.jeecg.alipay.api.base.JwGetUserInforMationAPI.java|
+用户接口	|	获取用户地理位置		|	com.jeecg.alipay.api.base.JwGetUserInforMationAPI.java|
+
+标签接口	|	创建标签				|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	查询标签				|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	修改标签				|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	删除标签				|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	用户增加标签			|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	查询用户标签			|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	删除用户标签			|	com.jeecg.alipay.api.base.JwLableAPI.java|
+标签接口	|	根据标签组发消息		|	com.jeecg.alipay.api.base.JwLableAPI.java|
+
+自定义菜单接口	|	添加菜单		|	com.jeecg.alipay.api.base.JwMenuAPI.java|
+自定义菜单接口	|	更新菜单		|	com.jeecg.alipay.api.base.JwMenuAPI.java|
+自定义菜单接口	|	查询菜单		|	com.jeecg.alipay.api.base.JwMenuAPI.java|
+
+二维码接口	|	创建带参推广二维码		|	com.jeecg.alipay.api.base.JWPromotionalSupportAPI.java|
+二维码接口	|	推广短链接				|	com.jeecg.alipay.api.base.JWPromotionalSupportAPI.java|
+
+发送消息接口	|	单发消息（文本）				|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	单发消息（图文）				|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	群发消息（文本）				|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	群发消息（图文）				|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	单发模板消息					|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	单发模板消息（新版API）		|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+发送消息接口	|	获取模板详情					|	com.jeecg.alipay.api.base.JwSendMessageAPI.java|
+
+
+基础信息接口	|	服务窗基础信息查询					|	com.jeecg.alipay.api.base.JwServiceWindowAPI.java|
+基础信息接口	|	服务窗基础信息修改					|	com.jeecg.alipay.api.base.JwServiceWindowAPI.java|
+
+---------------------------------------------------------------------------------------
+
+※※※四.微博接口※※※
+---------------------------------------------------------------------------------------
+
+基础接口		|	获取授权用户的UID					|	com.jeecg.weibo.api.WeiboAccountApi.java|
+
+评论接口		|	我发出的评论列表接口					|	com.jeecg.weibo.api.WeiboCommentsApi.java|
+评论接口		|	我收到的评论列表接口					|	com.jeecg.weibo.api.WeiboCommentsApi.java|
+
+粉丝接口		|	获取用户粉丝列表接口					|	com.jeecg.weibo.api.WeiboFriendshipsApi.java|
+粉丝接口		|	获取用户粉丝UID列表接口				|	com.jeecg.weibo.api.WeiboFriendshipsApi.java|
+
+发微博接口	|	发布一条新微博接口					|	com.jeecg.weibo.api.WeiboSendApi.java|
+发微博接口	|	删除一条微博接口						|	com.jeecg.weibo.api.WeiboSendApi.java|
+
+获取微博接口	|	获取用户发布的微博接口				|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+获取微博接口	|	获取用户发布的微博的ID的接口			|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+获取微博接口	|	批量获取指定微博的转发数评论数接口		|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+获取微博接口	|	根据ID获取单条微博信息接口			|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+获取微博接口	|	获取@当前用户的最新微博接口			|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+获取微博接口	|	获取@当前用户的最新微博的ID接口		|	com.jeecg.weibo.api.WeiboStatusesApi.java|
+
+用户接口	|	根据用户ID获取用户信息				|	com.jeecg.weibo.api.WeiboUsersApi|
+用户接口	|	批量获取用户的粉丝数/关注数/微博数接口	|	com.jeecg.weibo.api.WeiboUsersApi|

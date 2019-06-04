@@ -17,7 +17,7 @@ JEEWX-API  微信极速SDK
 -----------------------------------
 * 	QQ交流群： 287090836
 * 	技术论坛： www.jeecg.org
-* 	技术文档： [http://jeewx-api.mydoc.io](http://jeewx-api.mydoc.io)
+* 	技术文档： [http://www.jeewx.com/jeewx-api](http://www.jeewx.com/jeewx-api)
 
 
 
