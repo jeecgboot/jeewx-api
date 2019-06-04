@@ -2,7 +2,7 @@ JEEWX-API  微信极速SDK
 ===============
   （JAVA语言同时支持微信公众号\企业微信\支付窗\小程序\微博等）
 ===============
-最新版本： 1.2.2（发布日期：20181106）
+最新版本： 1.3（发布日期：20190604）
 官网：[www.jeewx.com](http://www.jeewx.com) 
 
 
@@ -15,7 +15,7 @@ JEEWX-API  微信极速SDK
 
 二、技术交流
 -----------------------------------
-* 	QQ交流群： ④289709451
+* 	QQ交流群： 287090836
 * 	技术论坛： www.jeecg.org
 * 	技术文档： [http://jeewx-api.mydoc.io](http://jeewx-api.mydoc.io)
 
@@ -24,26 +24,26 @@ JEEWX-API  微信极速SDK
 三、Jeewx-api 集成方法
 -----------------------------------
 ### [1].maven 方式
-    在pom.xml 添加jeewx-api 1.2.2依赖
+    在pom.xml 添加jeewx-api 1.3依赖
     <dependency>
 		<groupId>org.jeecgframework</groupId>
 		<artifactId>jeewx-api</artifactId>
-		<version>1.2.2</version>
+		<version>1.3</version>
 	</dependency>
 	
 ### [2].非maven方式
-         直接拷贝jeewx-api-1.2.2.jar进项目Lib中
+         直接拷贝jeewx-api-1.3.jar进项目Lib中
 		 
 
 
 
 
-四、测试代码
+四、API测试
 -----------------------------------
 
     public static void main(String[] args) {
 		try {
-			String accesstoken = "yALYWcUbB1hdURQvJ-Qn1jbyq5E0qNraZixnxhC1wtN5sKrAfHifyFHHpRWiUnZ1xnhjN_dcnYqFAgpJqeJJybx2NOVoEDZd7SFLjwFIvM8AJv3a8EGarbY0jo--4vuqUNNhADAQJJ";
+			String accesstoken = "?";
 			String user_openid = "o8QKAuAyDxxfyuBZ9ugSMR4SR5XQ";
 			JwUserAPI.getWxuser(accesstoken, user_openid);
 		} catch (WexinReqException e) {
@@ -52,10 +52,3 @@ JEEWX-API  微信极速SDK
 		}
 		
 	}
-
-	
-### 公众号体、小程序商城
-
-![github](http://www.jeecg.org/data/attachment/forum/201601/25/180314mjvputsot6hhtvoa.jpg "jeewx521")
-![github](https://static.oschina.net/uploads/img/201810/15180859_25Ok.jpg "jeewx521")
-    
