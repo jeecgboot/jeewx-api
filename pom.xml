@@ -6,7 +6,7 @@
 	<version>1.3</version>
 
 	<name>jeewx-api</name>
-	<description>JEEWX-API(微信极速SDK、同时支持微信公众号\企业微信\支付窗\小程序\微博).</description>
+	<description>JEEWX-API(极速SDK: 支持微信公众号\企业微信\支付窗\小程序\微博).</description>
 	<url>http://www.jeecg.org</url>
 	<licenses>
         <license>
