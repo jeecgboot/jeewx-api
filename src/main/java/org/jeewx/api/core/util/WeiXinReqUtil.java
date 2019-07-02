@@ -10,7 +10,6 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -19,6 +18,8 @@ import org.jeewx.api.core.handler.WeiXinReqHandler;
 import org.jeewx.api.core.req.WeiXinReqService;
 import org.jeewx.api.core.req.model.WeixinReqConfig;
 import org.jeewx.api.core.req.model.WeixinReqParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
@@ -29,7 +30,7 @@ import com.google.gson.Gson;
  */
 public class WeiXinReqUtil {
 	
-	private static Logger logger = Logger.getLogger(WeiXinReqUtil.class);
+	private static Logger logger = LoggerFactory.getLogger(WeiXinReqUtil.class);
 	
 	/**
 	 * 缓存请求配置

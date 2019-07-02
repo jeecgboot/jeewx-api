@@ -8,14 +8,10 @@ public class Test {
 
 	public static void main(String[] args) {
 		try {
-			String accesstoken = "_R_E8aQV0KRn0TQLCRrpCwEK0GBvnK81BiBrfY0FTuiq1qDPj6kigbRhwLG4S0TTC_mNcnFjiN5dQsgx3slbdJELpoO21uCqnj_P2I-e18ISNGjCJALGZ";
-			String user_openid = "oGCDRjkyK52FaBz8zCnG8mR-c92Q";
-			JwUserAPI.getWxuser(accesstoken, user_openid);
+			String s = JwTokenAPI.getAccessToken("wxa842e07813a1380a","80a457401915ccbc10da0971fa6d404a");
+			System.out.println(JwUserAPI.getWxuser(s, "oGCDRjvr9L1NoqxbyXLReCVYVyV0").getCity());
 		} catch (WexinReqException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
 }

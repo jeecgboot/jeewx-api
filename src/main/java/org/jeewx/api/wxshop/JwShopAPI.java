@@ -9,7 +9,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.poi.util.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.jeewx.api.core.common.JSONHelper;
 import org.jeewx.api.core.common.WxstoreUtils;
 import org.jeewx.api.coupon.location.model.BaseInfo;

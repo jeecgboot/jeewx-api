@@ -3,10 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jeecgframework</groupId>
 	<artifactId>jeewx-api</artifactId>
-	<version>1.3</version>
-
+	<version>1.3.1</version>
+	<packaging>jar</packaging>
+	
 	<name>jeewx-api</name>
-	<description>JEEWX-API(极速SDK: 支持微信公众号\企业微信\支付窗\小程序\微博).</description>
+	<description>微信开发SDK——支持微信公众号、小程序、企业号、支付宝生活号SDK、微博SDK</description>
 	<url>http://www.jeecg.org</url>
 	<licenses>
         <license>
@@ -43,109 +44,54 @@
 				<enabled>false</enabled>
 			</snapshots>
         </repository>
-		<repository>
-            <id>jeecg-snapshots</id>
-            <name>jeecg-snapshots Repository</name>
-            <url>http://maven.jeecg.org/nexus/content/repositories/snapshots</url>
-            <snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-        </repository>
 	</repositories>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<commons-beanutils.version>1.7.0</commons-beanutils.version>
-		<commons-collections.version>3.2.1</commons-collections.version>
-		<commons-chain.version>1.2</commons-chain.version>
-		<commons-codec.version>1.6</commons-codec.version>
-		<junit.version>4.7</junit.version>
-		<commons-lang.version>2.6</commons-lang.version>
-		<commons-lang3.version>3.1</commons-lang3.version>
-		<commons-logging.version>1.0.4</commons-logging.version>
-		<jackson.version>1.8.4</jackson.version>
-		<json-lib.version>2.1</json-lib.version>
-		<fastjson-lib.version>1.2.31</fastjson-lib.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<log4j.version>1.2.16</log4j.version>
-		<poi.version>3.9</poi.version>
+		<junit.version>4.12</junit.version>
+		<commons.version>2.6</commons.version>
+		<commons-codec.version>1.11</commons-codec.version>
+		<fastjson-lib.version>1.2.56</fastjson-lib.version>
+		<json-lib.version>2.4</json-lib.version>
+		<slf4j.version>1.7.25</slf4j.version>
 		<gson.version>2.2.4</gson.version>
+		
 		<jdom.version>1.1</jdom.version>
-		<freemarker.version>2.3.19</freemarker.version>
+		<freemarker.version>2.3.28</freemarker.version>
 		<baidubcs.version>1.4.5</baidubcs.version>
 	</properties>
 
 	<dependencies>
-		<!-- commons-beanutils -->
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-			<version>${commons-beanutils.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- baidubcs -->
-		 <dependency>
-		  <groupId>com.baidu.bcs</groupId>
-		  <artifactId>baidu-sdk</artifactId>
-		  <version>1.4.5</version>
-		</dependency> 
-		<!-- commons-collections -->
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>${commons-collections.version}</version>
-		</dependency>
-		<!-- commons-chain -->
-		<dependency>
-			<groupId>commons-chain</groupId>
-			<artifactId>commons-chain</artifactId>
-			<version>${commons-chain.version}</version>
-		</dependency>
 		<!-- commons-codec -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>${commons-codec.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+		<dependency>
+		   <groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		    <version>${commons.version}</version>
+		</dependency>
+				
+		<!-- json -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson-lib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
 		
-		<!-- commons-lang -->
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons-lang.version}</version>
-		</dependency>
-		<!-- commons-lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>${commons-lang3.version}</version>
-		</dependency>
-		<!-- commons-logging -->
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>${commons-logging.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<version>${json-lib.version}</version>
 			<classifier>jdk15</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>${fastjson-lib.version}</version>
 		</dependency>
 		<!-- slf4j -->
 		<dependency>
@@ -157,32 +103,17 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
+			<scope>provided</scope>
 		</dependency>
-		<!-- log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-		<!-- poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>${poi.version}</version>
-		</dependency>
-		
+		<!-- 单元测试 -->
 		<dependency>
 	      <groupId>junit</groupId>
 	      <artifactId>junit</artifactId>
 	      <version>${junit.version}</version>
+	      <scope>test</scope>
 	    </dependency>
-	    <dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>${gson.version}</version>
-		</dependency>
 		<dependency>
-		    <groupId>jdom</groupId>
+		    <groupId>org.jdom</groupId>
 		    <artifactId>jdom</artifactId>
 		    <version>${jdom.version}</version>
 		</dependency>
@@ -195,24 +126,30 @@
 		
 		<!-- 二维码 -->
 		<dependency>
-	    <groupId>com.google.zxing</groupId>
-			<artifactId>core</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
             <version>3.0.0</version>
         </dependency>
-		<!-- 阿里SDK -->
+		<!-- 阿里SDK
 		<dependency>
 		  <groupId>org.jeecgframework</groupId>
 		  <artifactId>alipay-sdk-java20161012120106</artifactId>
 		  <version>1.0</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>com.alipay.sdk</groupId>
+		    <artifactId>alipay-sdk-java</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
 		
+		<!-- baidubcs -->
+		 <dependency>
+		  <groupId>com.baidu.bcs</groupId>
+		  <artifactId>baidu-sdk</artifactId>
+		  <version>1.4.5</version>
+		</dependency> 
 	</dependencies>
-	
+
 	<!-- 上传官方仓库配置 -->
 	<profiles>
         <profile>
@@ -293,8 +230,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -303,6 +240,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
+					<skip>true</skip>
 				</configuration>
 			</plugin>
 			<!-- 编译源码包 -->

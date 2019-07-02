@@ -1,6 +1,5 @@
 package org.jeewx.api.core.common;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,9 +10,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,35 +66,6 @@ public final class JSONHelper {
 	// 将JSON转换成POJO,其中beanClz为POJO的Class
 	public static Object json2Object(String json, Class beanClz) {
 		return JSONObject.toBean(JSONObject.fromObject(json), beanClz);
-	}
-
-	/**
-	 * json转换为java对象
-	 * 
-	 * <pre>
-	 * return JackJson.fromJsonToObject(this.answersJson, JackJson.class);
-	 * </pre>
-	 * 
-	 * @param <T>
-	 *            要转换的对象
-	 * @param json
-	 *            字符串
-	 * @param valueType
-	 *            对象的class
-	 * @return 返回对象
-	 */
-	public static <T> T fromJsonToObject(String json, Class<T> valueType) {
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			return mapper.readValue(json, valueType);
-		} catch (JsonParseException e) {
-			logger.error("JsonParseException: ", e);
-		} catch (JsonMappingException e) {
-			logger.error("JsonMappingException: ", e);
-		} catch (IOException e) {
-			logger.error("IOException: ", e);
-		}
-		return null;
 	}
 
 	// 将String转换成JSON

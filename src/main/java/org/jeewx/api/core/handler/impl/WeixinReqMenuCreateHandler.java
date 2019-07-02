@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.jeewx.api.core.annotation.ReqType;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.jeewx.api.core.handler.WeiXinReqHandler;
@@ -14,6 +13,8 @@ import org.jeewx.api.core.req.model.menu.MenuCreate;
 import org.jeewx.api.core.req.model.menu.WeixinButton;
 import org.jeewx.api.core.util.HttpRequestProxy;
 import org.jeewx.api.core.util.WeiXinReqUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,7 +26,7 @@ import com.google.gson.GsonBuilder;
  */
 public class WeixinReqMenuCreateHandler implements WeiXinReqHandler {
 
-	private static Logger logger = Logger.getLogger(WeixinReqMenuCreateHandler.class);
+	private static Logger logger = LoggerFactory.getLogger(WeixinReqMenuCreateHandler.class);
 	
 	@SuppressWarnings("rawtypes")
 	public String doRequest(WeixinReqParam weixinReqParam) throws WexinReqException{

@@ -1,14 +1,12 @@
 package com.jeecg.weibo.api;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jeecg.weibo.exception.BusinessException;
 import com.jeecg.weibo.util.HttpUtil;
-import com.jeecg.weibo.util.WeiboUsersUtil;
 
 public class WeiboAccountApi {
 	private static final Logger logger = LoggerFactory.getLogger(WeiboAccountApi.class);

@@ -5,8 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import org.apache.log4j.Logger;
 import org.jeewx.api.cloud.baidu.model.BaiduCloud;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.baidu.inf.iis.bcs.BaiduBCS;
 import com.baidu.inf.iis.bcs.auth.BCSCredentials;
@@ -18,7 +19,7 @@ import com.baidu.inf.iis.bcs.request.PutObjectRequest;
 
 public class BaiduCloudService {
 	
-	private static Logger logger = Logger.getLogger(BaiduCloudService.class);
+	private static Logger logger = LoggerFactory.getLogger(BaiduCloudService.class);
 	
 	public static void main(String[] args) throws Exception {
 		 String host = "bcs.duapp.com";

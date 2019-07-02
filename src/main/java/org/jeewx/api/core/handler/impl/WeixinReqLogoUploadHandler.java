@@ -6,21 +6,20 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.jeewx.api.core.annotation.ReqType;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.jeewx.api.core.handler.WeiXinReqHandler;
-import org.jeewx.api.core.req.model.UploadMedia;
 import org.jeewx.api.core.req.model.WeixinReqConfig;
 import org.jeewx.api.core.req.model.WeixinReqParam;
-import org.jeewx.api.core.req.model.kfaccount.KfaccountUploadheadimg;
 import org.jeewx.api.core.util.HttpRequestProxy;
 import org.jeewx.api.core.util.WeiXinReqUtil;
 import org.jeewx.api.coupon.location.model.LocationInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class WeixinReqLogoUploadHandler implements WeiXinReqHandler {
 
-	private static Logger logger = Logger.getLogger(WeixinReqLogoUploadHandler.class);
+	private static Logger logger = LoggerFactory.getLogger(WeixinReqLogoUploadHandler.class);
 	
 	@SuppressWarnings("rawtypes")
 	public String doRequest(WeixinReqParam weixinReqParam) throws WexinReqException {

@@ -2,7 +2,7 @@ package com.jeecg.weibo.dto;
 
 import java.net.URLEncoder;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 发布微博   

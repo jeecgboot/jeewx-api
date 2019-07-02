@@ -2,7 +2,7 @@ package com.jeecg.weibo.util;
 
 import java.net.URLEncoder;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.jeecg.weibo.dto.WeiboSendDto;
 import com.jeecg.weibo.exception.BusinessException;

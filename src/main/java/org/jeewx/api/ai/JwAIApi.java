@@ -12,10 +12,11 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.log4j.Logger;
 import org.jeewx.api.ai.model.Voice;
 import org.jeewx.api.cloud.baidu.BaiduCloudService;
 import org.jeewx.api.core.util.WeiXinConstant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
 
@@ -41,7 +42,7 @@ public class JwAIApi {
 	 */
 	public static final String TRANSLATE_TEXT_URL = "http://api.weixin.qq.com/cgi-bin/media/voice/translatecontent?";
 	
-	private static Logger logger = Logger.getLogger(BaiduCloudService.class);
+	private static Logger logger = LoggerFactory.getLogger(BaiduCloudService.class);
 	
 	
 	/**

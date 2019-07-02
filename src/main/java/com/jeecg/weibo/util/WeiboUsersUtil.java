@@ -1,6 +1,6 @@
 package com.jeecg.weibo.util;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.jeecg.weibo.exception.BusinessException;
 

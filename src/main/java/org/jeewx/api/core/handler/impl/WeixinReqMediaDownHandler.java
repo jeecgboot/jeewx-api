@@ -2,7 +2,6 @@ package org.jeewx.api.core.handler.impl;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.jeewx.api.core.annotation.ReqType;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.jeewx.api.core.handler.WeiXinReqHandler;
@@ -11,10 +10,12 @@ import org.jeewx.api.core.req.model.WeixinReqConfig;
 import org.jeewx.api.core.req.model.WeixinReqParam;
 import org.jeewx.api.core.util.HttpRequestProxy;
 import org.jeewx.api.core.util.WeiXinReqUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class WeixinReqMediaDownHandler implements WeiXinReqHandler {
 
-	private static Logger logger = Logger.getLogger(WeixinReqMediaDownHandler.class);
+	private static Logger logger = LoggerFactory.getLogger(WeixinReqMediaDownHandler.class);
 	
 	@SuppressWarnings("rawtypes")
 	public String doRequest(WeixinReqParam weixinReqParam) throws WexinReqException {
