@@ -33,7 +33,7 @@ public class JwSendMessageAPI {
 	// 消息预览URL
 	private static String message_preview_url = "https://api.weixin.qq.com/cgi-bin/message/mass/preview?access_token=ACCESS_TOKEN";
 	// 上传媒体资源URL
-	private static String upload_media_url = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
+	private static String upload_media_url = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 	// 上传图文素材资源URL
 	private static String upload_article_url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=ACCESS_TOKEN";
 	// 根据分组进行群发URL
