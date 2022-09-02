@@ -26,7 +26,10 @@ public class User {
 	private String avatar;//头像url。注：如果要获取小图将url最后的"/0"改成"/64"即可   创建的时候不需要这个字段 也可以使用transient来取消序列化
 //	@JSONField(serialize=false)
 	private Integer status;//关注状态 1=已关注，2=已禁用，4=未关注   创建的时候不需要这个字段 也可以使用transient来取消序列化
-	
+
+	private String telephone; // 座机号
+	private Integer[] is_leader_in_dept; // 个数必须和参数department的个数一致，表示在所在的部门内是否为上级。1表示为上级，0表示非上级。在审批等应用里可以用来标识上级审批人
+
 	private JSONObject extattr;//扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值
 	
 	public String getUserid() {
@@ -107,6 +110,16 @@ public class User {
 	public void setExtattr(JSONObject extattr) {
 		this.extattr = extattr;
 	}
-	
-	
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public Integer[] getIs_leader_in_dept() {
+		return is_leader_in_dept;
+	}
+	public void setIs_leader_in_dept(Integer[] is_leader_in_dept) {
+		this.is_leader_in_dept = is_leader_in_dept;
+	}
 }

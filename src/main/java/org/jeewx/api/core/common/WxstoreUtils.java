@@ -16,7 +16,7 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SecureRandom;
-
+import java.util.Base64;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -25,10 +25,8 @@ import javax.net.ssl.TrustManager;
 import org.jeewx.api.core.exception.WexinReqException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import net.sf.json.JSONObject;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+
 /**
  * 
  * @author xiaoqingfeng
@@ -193,18 +191,14 @@ public class WxstoreUtils {
 	}
 
 	public static String encode(byte[] bstr) {
-		return new BASE64Encoder().encode(bstr);
+		Base64.Encoder encoder = Base64.getEncoder();
+		return encoder.encodeToString(bstr);
 	}
 
 	public static byte[] decode(String str) {
-		byte[] bt = null;
-		try {
-			BASE64Decoder decoder = new BASE64Decoder();
-			bt = decoder.decodeBuffer(str);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return bt;
+		Base64.Decoder decoder = Base64.getDecoder();
+		byte[] buf = decoder.decode(str);
+		return buf;
 	}
 
 	public static byte[] readInputStream(InputStream inStream) throws Exception {

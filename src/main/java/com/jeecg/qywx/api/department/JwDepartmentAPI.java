@@ -32,7 +32,7 @@ public class JwDepartmentAPI {
 	//获取部门列表（GET）   [获取特定部门]
 	private static String department_list_url_get = "https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=ACCESS_TOKEN&id=ID";  
 	//获取部门列表（GET）   [获取全部组织机构]
-	private static String department_list_url = "https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=ACCESS_TOKEN"; 
+	private static String department_list_url = "https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=ACCESS_TOKEN";
 	
 	/**
 	 * 创建部门
@@ -101,9 +101,26 @@ public class JwDepartmentAPI {
 	    	List<Department> ps = gson.fromJson(departmentjson, new TypeToken<List<Department>>(){}.getType());
 	    	return ps;
 	    }  
-	    return null;  
+	    return null;
 	}
-	
+
+	/**
+	 * 获取指定部门
+	 *
+	 * @param depId
+	 * @param accessToken
+	 * @return
+	 */
+	public static List<Department> getDepartmentById(String depId, String accessToken) {
+		logger.info("[JW_DEPARTMENT] getDepartmentById param:accessToken:{}", new Object[]{accessToken});
+		// 拼装url
+		String url = department_list_url_get.replace("ACCESS_TOKEN", accessToken).replace("ID", depId);
+		// 调用接口查询部门
+		JSONObject response = HttpUtil.sendPost(url);
+		logger.info("[JW_DEPARTMENT] getDepartmentById response:{}", new Object[]{response.toJSONString()});
+		return response.getJSONArray("department").toJavaList(Department.class);
+	}
+
 	/**
 	 * 删除部门
 	 * @param departId

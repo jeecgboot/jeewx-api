@@ -46,7 +46,7 @@ public class JwTagAPI {
 	/**
 	 * 创建标签
 	 * @param accessToken
-	 * @param name
+	 * @param tagName
 	 * @return
 	 * @throws WexinReqException
 	 */

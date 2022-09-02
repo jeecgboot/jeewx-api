@@ -1,31 +1,14 @@
 package com.jeecg.qywx.api.message;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jeecg.qywx.api.base.JwAccessTokenAPI;
 import com.jeecg.qywx.api.base.JwParamesAPI;
 import com.jeecg.qywx.api.core.common.AccessToken;
 import com.jeecg.qywx.api.core.util.HttpUtil;
-import com.jeecg.qywx.api.media.vo.MpnewEntity;
-import com.jeecg.qywx.api.message.vo.File;
-import com.jeecg.qywx.api.message.vo.FileEntity;
-import com.jeecg.qywx.api.message.vo.FixMpnews;
-import com.jeecg.qywx.api.message.vo.Image;
-import com.jeecg.qywx.api.message.vo.ImageEntity;
-import com.jeecg.qywx.api.message.vo.Mpnews;
-import com.jeecg.qywx.api.message.vo.MpnewsArticles;
-import com.jeecg.qywx.api.message.vo.News;
-import com.jeecg.qywx.api.message.vo.NewsArticle;
-import com.jeecg.qywx.api.message.vo.NewsEntity;
-import com.jeecg.qywx.api.message.vo.Text;
-import com.jeecg.qywx.api.message.vo.TextEntity;
-import com.jeecg.qywx.api.message.vo.Video;
-import com.jeecg.qywx.api.message.vo.VideoEntity;
-import com.jeecg.qywx.api.message.vo.Voice;
-import com.jeecg.qywx.api.message.vo.VoiceEntity;
-import com.jeecg.qywx.api.user.JwUserAPI;
+import com.jeecg.qywx.api.message.vo.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JwMessageAPI {
 	private static final Logger logger = LoggerFactory.getLogger(JwMessageAPI.class);
@@ -198,9 +181,44 @@ public class JwMessageAPI {
 		        result = errcode;
 		    }  
 		    return result;  
-		} 
-	 
-	 
+		}
+
+	/**
+	 * 发送文本卡片消息
+	 */
+	public static JSONObject sendTextCardMessage(TextCard textCard, String accessToken) {
+		logger.info("[JwMessage] sendTextCardMessage params:accessToken:{},textCard:{}", new Object[]{accessToken, textCard});
+		// 拼装发送信息的url
+		String url = message_send_url.replace("ACCESS_TOKEN", accessToken);
+		// 将信息对象转换成json字符串
+		String params = JSONObject.toJSONString(textCard);
+		logger.info("[JwMessage] sendTextCardMessage params:jsonText:{}", new Object[]{params});
+		// 调用接口发送信息
+		JSONObject jsonObject = HttpUtil.sendPost(url, params);
+		logger.info("[JwMessage] sendTextCardMessage response:{}", new Object[]{jsonObject.toJSONString()});
+		return jsonObject;
+	}
+
+	/**
+	 * 发送Markdown消息
+	 *
+	 * @param markdown    发送的Markdown消息
+	 * @param accessToken 获取的access_token
+	 */
+	public static JSONObject sendMarkdownMessage(Markdown markdown, String accessToken) {
+		logger.info("[JwMessage] createText param:accessToken:{}, markdown:{}", accessToken, markdown);
+		int result = 0;
+		// 拼装发送信息的url  
+		String url = message_send_url.replace("ACCESS_TOKEN", accessToken);
+		// 将信息对象转换成json字符串  
+		String jsonText = JSON.toJSONString(markdown);
+		logger.info("[JwMessage] sendMessage param:jsonText:{}", jsonText);
+		// 调用接口发送信息 
+		JSONObject jsonObject = HttpUtil.sendPost(url, jsonText);
+		logger.info("[JwMessage] sendMessage response:{}", jsonObject.toJSONString());
+		return jsonObject;
+	}
+
 //测试
 	 public static void main(String[] args){
 		 AccessToken accessToken = JwAccessTokenAPI.getAccessToken(JwParamesAPI.corpId,JwParamesAPI.secret);

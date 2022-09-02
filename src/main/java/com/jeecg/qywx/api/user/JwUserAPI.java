@@ -38,9 +38,12 @@ public class JwUserAPI {
 	//6 获取部门下的成员
 	private static String user_get_dep_all_url = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=FETCH_CHILD&status=STATUS";  
 	//7 获取部门成员(详情)
-	private static String user_get_url = "https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=FETCH_CHILD&status=STATUS";  
-	
-	
+	private static String user_get_url = "https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=FETCH_CHILD&status=STATUS";
+	//8 手机号获取userid
+	private static String user_get_userid = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserid?access_token=ACCESS_TOKEN";
+	//9 根据网页授权登录获取到的code来获取用户详情
+	private static String user_get_userinfo = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?code=CODE&access_token=ACCESS_TOKEN";
+
 	//1创建成员
 	/**
 	 * 创建成员
@@ -231,8 +234,37 @@ public class JwUserAPI {
 	    }  
 		return null;
 	}
-	
-	
+
+	//8 手机号获取userid
+	public static String getUserIdByPhone(String phone, String accessToken) {
+		logger.info("[GETUSERIDBYPHONE] getUserIdByPhone param:phone:{},accessToken:{}", new Object[]{phone, accessToken});
+		JSONObject params = new JSONObject();
+		params.put("mobile", phone);
+		String url = user_get_userid.replace("ACCESS_TOKEN", accessToken);
+		JSONObject response = HttpUtil.sendPost(url, params.toJSONString());
+		if (response != null) {
+			int errcode = response.getIntValue("errcode");
+			if (errcode == 0) {
+				return response.getString("userid");
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * 9 根据网页授权登录获取到的code来获取用户详情
+	 *
+	 * @param code
+	 * @param accessToken
+	 * @return
+	 */
+	public static JSONObject getUserInfoByCode(String code, String accessToken) {
+		logger.info("[GETUSERINFOBYCODE] getUserInfoByCode param:code:{},accessToken:{}", new Object[]{code, accessToken});
+		String url = user_get_userinfo.replace("CODE", code).replace("ACCESS_TOKEN", accessToken);
+		// errcode
+		return HttpUtil.sendGet(url);
+	}
+
 	public static void main(String[] args) {
 		AccessToken accessToken = JwAccessTokenAPI.getAccessToken(JwParamesAPI.corpId,JwParamesAPI.secret);
 		/*JSONObject js = getUsersByDepartid("5", null,null,accessToken.getAccesstoken());

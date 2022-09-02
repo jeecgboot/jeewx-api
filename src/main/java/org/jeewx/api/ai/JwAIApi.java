@@ -13,7 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.jeewx.api.ai.model.Voice;
-import org.jeewx.api.cloud.baidu.BaiduCloudService;
 import org.jeewx.api.core.util.WeiXinConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +24,8 @@ import net.sf.json.JSONObject;
  * 
  */
 public class JwAIApi {
+
+	private static Logger logger = LoggerFactory.getLogger(JwAIApi.class);
 
 	/**
 	 * 提交语音
@@ -41,9 +42,7 @@ public class JwAIApi {
 	 * 翻译接口
 	 */
 	public static final String TRANSLATE_TEXT_URL = "http://api.weixin.qq.com/cgi-bin/media/voice/translatecontent?";
-	
-	private static Logger logger = LoggerFactory.getLogger(BaiduCloudService.class);
-	
+
 	
 	/**
 	 * 微信翻译语音<br>
