@@ -47,7 +47,7 @@
 	</repositories>
 
 	<properties>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<commons-io.version>2.6</commons-io.version>
 		<commons-codec.version>1.14</commons-codec.version>
 		<fastjson-lib.version>1.2.83</fastjson-lib.version>
