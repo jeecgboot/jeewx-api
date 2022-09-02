@@ -31,8 +31,8 @@ public class JwSendMessageAPITest {
 		service = new JwSendMessageAPI();
 		touser = "oA1Vct-_r1rAd5mcL3lEZKgcvGZY";
 		 
-		String appid = "wxb512901288a94943";
-		String appscret = "6f94b81b49cf9f89fafe305dcaf2c632";
+		String appid = "??";
+		String appscret = "??";
 		
 		AccessToken token = new AccessToken(appid, appscret);
 

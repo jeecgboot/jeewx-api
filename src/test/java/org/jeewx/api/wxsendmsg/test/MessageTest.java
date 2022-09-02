@@ -30,8 +30,8 @@ public class MessageTest {
 	@Before
 	public void getToken() throws WexinReqException {
 		touser = "oA1Vct-_r1rAd5mcL3lEZKgcvGZY";
-		String appId = "wx6fdc3953994264a6";
-		String appSecret = "b874abf79931998b57ecc3a6f6d9665e";
+		String appId = "??";
+		String appSecret = "??";
 		AccessToken token = new AccessToken(appId, appSecret);
 
 		String strtoken = token.getNewAccessToken();

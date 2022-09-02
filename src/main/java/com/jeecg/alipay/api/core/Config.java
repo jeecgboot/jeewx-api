@@ -9,7 +9,7 @@ public class Config {
 	public static final String URL = "https://openapi.alipay.com/gateway.do";
 	// 商户应用APPID，只要您的应用中包含当面付接口且是开通状态，就可以用此应用对应的appid。
 	/* 开发者可登录开放平台-管理中心-对应应用中查看 */
-	public static final String APPID = " 2015112500868971";
+	public static final String APPID = " ??";
 	// 编码字符集。默认 utf-8
 	public static final String CHARSET = "utf-8";
 	// 返回格式。默认json

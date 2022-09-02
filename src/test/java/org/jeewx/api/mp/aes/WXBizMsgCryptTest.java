@@ -21,11 +21,11 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class WXBizMsgCryptTest {
-	String encodingAesKey = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG";
+	String appId = "??";
+	String encodingAesKey = "??";
 	String token = "pamtest";
 	String timestamp = "1409304348";
 	String nonce = "xxxxxx";
-	String appId = "wxb11529c136998cb6";
 	String replyMsg = "我是中文abcd123";
 	String xmlFormat = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><Encrypt><![CDATA[%1$s]]></Encrypt></xml>";
 	String afterAesEncrypt = "jn1L23DB+6ELqJ+6bruv21Y6MD7KeIfP82D6gU39rmkgczbWwt5+3bnyg5K55bgVtVzd832WzZGMhkP72vVOfg==";
@@ -140,8 +140,7 @@ public class WXBizMsgCryptTest {
 
 	@Test
 	public void testVerifyUrl() throws AesException {
-		WXBizMsgCrypt wxcpt = new WXBizMsgCrypt("QDG6eK",
-				"jWmYm7qr5nMoAUwZRjGtBxmz3KA1tkAj3ykkR6q2B2C", "wx5823bf96d3bd56c7");
+		WXBizMsgCrypt wxcpt = new WXBizMsgCrypt("QDG6eK", "??", "??");
 		String verifyMsgSig = "5c45ff5e21c57e6ad56bac8758b79b1d9ac89fd3";
 		String timeStamp = "1409659589";
 		String nonce = "263014780";
