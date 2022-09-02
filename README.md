@@ -3,8 +3,8 @@ JEEWX-API  微信开发SDK
 
   
 最新版本： 1.4.9（发布日期：20220902）
-官网：[www.jeecg.com](http://www.jeecg.com) 
 
+ > 反馈问题：发现bug请在github [发issue](https://github.com/jeecgboot/jeewx-api/issues/new)
 
 
 项目介绍
@@ -15,7 +15,7 @@ JEEWX-API  微信开发SDK
 
 技术交流
 -----------------------------------
-* 	技术论坛： www.jeecg.org
+* 	技术官网： www.jeecg.com
 * 	快速文档： [http://jeewx-api.mydoc.io](http://jeewx-api.mydoc.io)
 * 	API文档： [http://www.jeewx.com/jeewx-api](http://www.jeewx.com/jeewx-api)
 
