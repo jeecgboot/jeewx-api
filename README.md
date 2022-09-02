@@ -2,7 +2,7 @@ JEEWX-API  微信开发SDK
 ===============
 
   
-最新版本： 1.3.2（发布日期：20220902）
+最新版本： 1.4.9（发布日期：20220902）
 官网：[www.jeecg.com](http://www.jeecg.com) 
 
 
@@ -28,11 +28,11 @@ Jeewx-Api 集成方法
     <dependency>
 		<groupId>org.jeecgframework</groupId>
 		<artifactId>jeewx-api</artifactId>
-		<version>1.3.2</version>
+		<version>1.4.9</version>
 	</dependency>
 	
 ### [2].非maven方式
-         直接拷贝jeewx-api-1.3.2.jar进项目Lib中
+         直接拷贝jeewx-api-*.jar进项目Lib中
 		 
 
 
