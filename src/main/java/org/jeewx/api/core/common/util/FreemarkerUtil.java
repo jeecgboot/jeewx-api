@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
 
+import freemarker.core.TemplateClassResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.jeewx.api.core.common.util.StringTemplateLoader
@@ -23,7 +24,7 @@ import org.jeewx.api.core.common.util.StringTemplateLoader
  * @version V1.0
  */
 public class FreemarkerUtil {
-	private static Configuration _tplConfig = new Configuration();
+	private static Configuration _tplConfig = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
 
 	public FreemarkerUtil(){
 		
@@ -33,6 +34,9 @@ public class FreemarkerUtil {
 			_tplConfig.setDirectoryForTemplateLoading(new File(dir));
 			//必须freemarker字段为空，报错
 			_tplConfig.setClassicCompatible(true);
+			//update-begin-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
+			_tplConfig.setNewBuiltinClassResolver(TemplateClassResolver.SAFER_RESOLVER);
+			//update-end-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,7 +104,10 @@ public class FreemarkerUtil {
 	 */
 	public String parseTemplateContent(String tplContent,
 			Map<String, Object> paras, String encoding) {
-		Configuration cfg = new Configuration();    
+		Configuration cfg = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+		//update-begin-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
+		cfg.setNewBuiltinClassResolver(TemplateClassResolver.SAFER_RESOLVER);
+		//update-end-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
 	    StringWriter writer = new StringWriter(); 
         cfg.setTemplateLoader(new StringTemplateLoader(tplContent));  
         encoding = encoding==null?"UTF-8":encoding;
@@ -124,9 +131,12 @@ public class FreemarkerUtil {
 	 * @return String 模板解析后内容
 	 */
 	public static String parseTemplateContent(String tplContent,Map<String, Object> paras) {
-		Configuration cfg = new Configuration();    
+		Configuration cfg = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);    
 	    StringWriter writer = new StringWriter(); 
-        cfg.setTemplateLoader(new StringTemplateLoader(tplContent));  
+        cfg.setTemplateLoader(new StringTemplateLoader(tplContent));
+		//update-begin-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
+		cfg.setNewBuiltinClassResolver(TemplateClassResolver.SAFER_RESOLVER);
+		//update-end-author:scott date:2023-8-15 for: freemarker模板注入问题 禁止解析ObjectConstructor，Execute和freemarker.template.utility.JythonRuntime。
         cfg.setDefaultEncoding("UTF-8");    
    
         Template template;

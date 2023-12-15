@@ -149,7 +149,7 @@ public class JdtMessageAPI {
      * @param accessToken 有效的access_token
      * @return Response&lt;JSONObject&gt
      */
-    public static Response<JSONObject> recallMessage(int agent_id, String msg_task_id, String accessToken) {
+    public static Response<JSONObject> recallMessage(String agent_id, String msg_task_id, String accessToken) {
         String url = ApiUrls.get(ApiUrls.MSG_RECALL, accessToken);
         JSONObject body = new JSONObject();
         body.put("agent_id", agent_id);

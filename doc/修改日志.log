@@ -1,0 +1,24 @@
+-- author:scott ----date:20220524-------for:fastjson挖矿漏洞问题---
+pom.xml
+-- author:scott ----date:20220524-------for:fastjson挖矿漏洞问题---
+
+-- author:sunjianlei---date:20220819--for: 【JwMessageAPI】新增发送Markdown消息 ---
+pom.xml
+src/main/java/com/jeecg/qywx/api/message/JwMessageAPI.java
+src/main/java/com/jeecg/qywx/api/message/vo/Markdown.java (+)
+src/main/java/com/jeecg/qywx/api/message/vo/MarkdownEntity.java (+)
+-- author:sunjianlei---date:20220819--for: 【JwMessageAPI】新增发送Markdown消息 ---
+
+-- author:sunjianlei---date:20221102--for: 【JwUserAPI】新增获取企业成员的userid与对应的部门ID列表接口 ---
+src/main/java/com/jeecg/qywx/api/user/JwUserAPI.java
+-- author:sunjianlei---date:20221102--for: 【JwUserAPI】新增获取企业成员的userid与对应的部门ID列表接口 ---
+
+-- author:sunjianlei---date:20230208--for: 【#4499】钉钉H5微应用，AgentId值大于int类型的最大值导致转换失败 ---
+src/main/java/com/jeecg/dingtalk/api/message/vo/Message.java
+src/main/java/com/jeecg/dingtalk/api/message/JdtMessageAPI.java
+-- author:sunjianlei---date:20230208--for: 【#4499】钉钉H5微应用，AgentId值大于int类型的最大值导致转换失败 ---
+
+---author:scott---date:2023-08-15---for:升级版本号，freemaker漏洞---
+org\jeewx\api\core\common\util\FreemarkerUtil.java
+pom.xml
+---author:scott---date:2023-08-15---for:升级版本号，freemaker漏洞---

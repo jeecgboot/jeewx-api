@@ -1,12 +1,5 @@
 package com.jeecg.qywx.api.user;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -15,6 +8,13 @@ import com.jeecg.qywx.api.base.JwParamesAPI;
 import com.jeecg.qywx.api.core.common.AccessToken;
 import com.jeecg.qywx.api.core.util.HttpUtil;
 import com.jeecg.qywx.api.user.vo.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 企业微信--yqj
@@ -43,6 +43,8 @@ public class JwUserAPI {
 	private static String user_get_userid = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserid?access_token=ACCESS_TOKEN";
 	//9 根据网页授权登录获取到的code来获取用户详情
 	private static String user_get_userinfo = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?code=CODE&access_token=ACCESS_TOKEN";
+	// 获取企业成员的userid与对应的部门ID列表
+	private static String user_get_id_list = "https://qyapi.weixin.qq.com/cgi-bin/user/list_id?access_token=ACCESS_TOKEN";
 
 	//1创建成员
 	/**
@@ -65,15 +67,15 @@ public class JwUserAPI {
 	 */
 	public static int createUser(User user, String accessToken){
 		int result = 0;  
-		logger.info("[CREATEUSER]", "createUser param:user:{},accessToken:{}", new Object[]{user,accessToken});
+		logger.info("[CREATEUSER] createUser param:user:{},accessToken:{}", user,accessToken);
 		// 拼装获取成员列表的url  
 	    String url = user_create_url.replace("ACCESS_TOKEN", accessToken);  
 	    // 将成员对象转换成json字符串  
 	    String jsonUser = JSONObject.toJSONString(user);  
-	    logger.info("[CREATEUSER]", "createUser param:jsonUser:{}", new Object[]{jsonUser});
+	    logger.info("[CREATEUSER] createUser param:jsonUser:{}", jsonUser);
 	    // 调用接口创建用户 
 	    JSONObject jsonObject = HttpUtil.sendPost(url, jsonUser);
-	    logger.info("[CREATEUSER]", "createUser response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[CREATEUSER] createUser response:{}", jsonObject.toJSONString());
 	    // 调用接口创建用户  
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
@@ -91,15 +93,15 @@ public class JwUserAPI {
 	 */
 	public static int updateUser(User user, String accessToken){
 		int result=0;
-		logger.info("[UPDATEUSER]", "updateUser param:user:{},accessToken:{}", new Object[]{user,accessToken});
+		logger.info("[UPDATEUSER] updateUser param:user:{},accessToken:{}", user,accessToken);
 		// 拼装更新成员列表的url  
 	    String url = user_update_url.replace("ACCESS_TOKEN", accessToken);  
 	    // 将成员对象转换成json字符串  
 	    String jsonUser = JSONObject.toJSONString(user);  
-	    logger.info("[UPDATEUSER]", "updateUser param:jsonUser:{}", new Object[]{jsonUser});
+	    logger.info("[UPDATEUSER] updateUser param:jsonUser:{}", jsonUser);
 	    // 调用接口更新用户 
 	    JSONObject jsonObject = HttpUtil.sendPost(url, jsonUser);  
-	    logger.info("[UPDATEUSER]", "updateUser response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[UPDATEUSER] updateUser response:{}", jsonObject.toJSONString());
 	    // 调用接口更新成员  
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
@@ -117,14 +119,14 @@ public class JwUserAPI {
 	 */
 	public static int deleteUser(String userid, String accessToken){
 		int result=0;
-		logger.info("[DELETEUSER]", "deleteUser param:userid:{},accessToken:{}", new Object[]{userid,accessToken});
+		logger.info("[DELETEUSER] deleteUser param:userid:{},accessToken:{}", userid,accessToken);
 		// 拼装删除成员列表的url  
 	    String url = user_delete_url.replace("ACCESS_TOKEN", accessToken).replace("USERID", userid);  
 	    // 将成员对象转换成json字符串  
-	    logger.info("[DELETEUSER]", "deleteUser param:userid:{}", new Object[]{userid});
+	    logger.info("[DELETEUSER] deleteUser param:userid:{}", userid);
 	    // 调用接口删除用户 
 	    JSONObject jsonObject = HttpUtil.sendPost(url);  
-	    logger.info("[DELETEUSER]", "deleteUser response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[DELETEUSER] deleteUser response:{}", jsonObject.toJSONString());
 	    // 调用接口删除成员  
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
@@ -142,17 +144,17 @@ public class JwUserAPI {
 	 */
 	public static int batchDeleteUsers(String[] useridlist, String accessToken){
 		int result=0;
-		logger.info("[BATCHDELETEUSERS]", "batchDeleteUsers param:useridlist:{},accessToken:{}", new Object[]{useridlist,accessToken});
+		logger.info("[BATCHDELETEUSERS] batchDeleteUsers param:useridlist:{},accessToken:{}", useridlist,accessToken);
 		// 拼装批量删除成员列表的url  
 	    String url = user_delete_all_url.replace("ACCESS_TOKEN", accessToken);  
 	    // 将成员对象转换成json字符串  
 	    Map<String, String[]> paramtermap=new HashMap<String, String[]>();
 	    paramtermap.put("useridlist", useridlist);
 	    String jsonUserids = JSONObject.toJSONString(paramtermap); 
-	    logger.info("[BATCHDELETEUSERS]", "batchDeleteUsers param:useridlist:{}", new Object[]{paramtermap});
+	    logger.info("[BATCHDELETEUSERS] batchDeleteUsers param:useridlist:{}", paramtermap);
 	    // 调用接口批量删除
 	    JSONObject jsonObject = HttpUtil.sendPost(url,jsonUserids);  
-	    logger.info("[BATCHDELETEUSERS]", "batchDeleteUsers response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[BATCHDELETEUSERS] batchDeleteUsers response:{}", jsonObject.toJSONString());
 	    // 调用接口批量删除
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
@@ -163,12 +165,12 @@ public class JwUserAPI {
 	
 	//5获取成员
 	public static User getUserByUserid(String userid, String accessToken){
-		logger.info("[GETUSERBYUSERID]", "getUserByUserid param:userid:{},accessToken:{}", new Object[]{userid,accessToken});
+		logger.info("[GETUSERBYUSERID] getUserByUserid param:userid:{},accessToken:{}", userid,accessToken);
 		// 拼装获取成员的url  
 	    String url = user_get_url_byuserid.replace("ACCESS_TOKEN", accessToken).replace("USERID", userid);  
 	    // 调用接口获取成员
 	    JSONObject jsonObject = HttpUtil.sendPost(url); 
-	    logger.info("[GETUSERBYUSERID]", "getUserByUserid response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[GETUSERBYUSERID] getUserByUserid response:{}", jsonObject.toJSONString());
 	    //把对象转换成user
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
@@ -182,7 +184,7 @@ public class JwUserAPI {
 	
 	//6获取部门成员
 	public static List<User> getUsersByDepartid(String department_id,String fetch_child,String status , String accessToken){
-		logger.info("[GETUSERSBYDEPARTID]", "getUsersByDepartid param:department_id:{},fetch_child:{},status:{},accessToken:{}", new Object[]{department_id,fetch_child,status,accessToken});
+		logger.info("[GETUSERSBYDEPARTID] getUsersByDepartid param:department_id:{},fetch_child:{},status:{},accessToken:{}", department_id,fetch_child,status,accessToken);
 		// 拼装获取部门成员的列表的url  
 	    String url = user_get_dep_all_url.replace("ACCESS_TOKEN", accessToken).replace("DEPARTMENT_ID", department_id);
 	    if(fetch_child!=null){
@@ -193,7 +195,7 @@ public class JwUserAPI {
 	    }
 	    // 调用接口获取部门成员
 	    JSONObject jsonObject = HttpUtil.sendPost(url);  
-	    logger.info("[GETUSERSBYDEPARTID]", "getUsersByDepartid response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[GETUSERSBYDEPARTID] getUsersByDepartid response:{}", jsonObject.toJSONString());
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
 	        if(errcode==0){
@@ -207,6 +209,7 @@ public class JwUserAPI {
 	}
 	
 	//7 获取部门成员(详情)
+	@Deprecated
 	public static List<User> getDetailUsersByDepartid(String department_id,String fetch_child,String status , String accessToken){
 		if(null==fetch_child){
 //			fetch_child="";
@@ -216,13 +219,13 @@ public class JwUserAPI {
 //			status="";
 			status="0";
 		}
-		logger.info("[GETDETAILUSERSBYDEPARTID]", "getDetailUsersByDepartid param:department_id:{},fetch_child:{},status:{},accessToken:{}", new Object[]{department_id,fetch_child,status,accessToken});
+		logger.info("[GETDETAILUSERSBYDEPARTID] getDetailUsersByDepartid param:department_id:{},fetch_child:{},status:{},accessToken:{}", department_id,fetch_child,status,accessToken);
 		// 拼装获取部门成员(详情)的列表的url  
 	    String url = user_get_url.replace("ACCESS_TOKEN", accessToken).replace("DEPARTMENT_ID", department_id).replace("FETCH_CHILD", fetch_child).replace("STATUS", status);  
 	    // 调用接口获取部门成员(详情)
 	    JSONObject jsonObject = HttpUtil.sendPost(url);  
 //	    System.out.println("jsonObject="+jsonObject);
-	    logger.info("[GETDETAILUSERSBYDEPARTID]", "getDetailUsersByDepartid response:{}", new Object[]{jsonObject.toJSONString()});
+	    logger.info("[GETDETAILUSERSBYDEPARTID] getDetailUsersByDepartid response:{}", jsonObject.toJSONString());
 	    if (null != jsonObject) {  
 	    	int errcode = jsonObject.getIntValue("errcode");
 	        if(errcode==0){
@@ -237,7 +240,7 @@ public class JwUserAPI {
 
 	//8 手机号获取userid
 	public static String getUserIdByPhone(String phone, String accessToken) {
-		logger.info("[GETUSERIDBYPHONE] getUserIdByPhone param:phone:{},accessToken:{}", new Object[]{phone, accessToken});
+		logger.info("[GETUSERIDBYPHONE] getUserIdByPhone param:phone:{},accessToken:{}", phone, accessToken);
 		JSONObject params = new JSONObject();
 		params.put("mobile", phone);
 		String url = user_get_userid.replace("ACCESS_TOKEN", accessToken);
@@ -259,10 +262,41 @@ public class JwUserAPI {
 	 * @return
 	 */
 	public static JSONObject getUserInfoByCode(String code, String accessToken) {
-		logger.info("[GETUSERINFOBYCODE] getUserInfoByCode param:code:{},accessToken:{}", new Object[]{code, accessToken});
+		logger.info("[GETUSERINFOBYCODE] getUserInfoByCode param:code:{},accessToken:{}", code, accessToken);
 		String url = user_get_userinfo.replace("CODE", code).replace("ACCESS_TOKEN", accessToken);
 		// errcode
 		return HttpUtil.sendGet(url);
+	}
+
+	/**
+	 * 10 获取企业成员的userid与对应的部门ID列表
+	 *
+	 * @param accessToken 调用接口凭证
+	 */
+	public static List<User> getUserIdList(String accessToken) {
+		logger.info("[GETUSERIDLIST] getUserIdList params:accessToken:{}", accessToken);
+		String url = user_get_id_list.replace("ACCESS_TOKEN", accessToken);
+		JSONObject response = HttpUtil.sendPost(url);
+		if (response != null) {
+			logger.info("[GETUSERIDLIST] getUserIdList response:{}", response.toJSONString());
+			int errcode = response.getIntValue("errcode");
+			if (errcode == 0) {
+				JSONArray deptUser = response.getJSONArray("dept_user");
+				List<User> users = new ArrayList<>();
+				for (int i = 0; i < deptUser.size(); i++) {
+					JSONObject user = deptUser.getJSONObject(i);
+					User u = new User();
+					u.setUserid(user.getString("userid"));
+					int department = user.getIntValue("department");
+					u.setDepartment(new Integer[]{department});
+					users.add(u);
+				}
+				return users;
+			}
+		} else {
+			logger.info("[GETUSERIDLIST] getUserIdList response: null");
+		}
+		return null;
 	}
 
 	public static void main(String[] args) {
@@ -310,8 +344,8 @@ public class JwUserAPI {
 		/**
 		 * 5:getUserByUserid
 		 */
-		User user = getUserByUserid("yangqj", accessToken.getAccesstoken());
-		System.out.println(JSONObject.toJSON(user));
+//		User user = getUserByUserid("yangqj", accessToken.getAccesstoken());
+//		System.out.println(JSONObject.toJSON(user));
 		
 		/**
 		 *6 getUsersByDepartid
@@ -326,5 +360,11 @@ public class JwUserAPI {
 		 */
 		/*List<User> users=getDetailUsersByDepartid("5", null, null, accessToken.getAccesstoken());
 		System.out.println(JSONObject.toJSON(users));*/
+		/*
+		 * 7 获取成员id
+		 */
+		List<User> users = JwUserAPI.getUserIdList(accessToken.getAccesstoken());
+		System.out.println(JSON.toJSONString(users));
+
 	}
 }

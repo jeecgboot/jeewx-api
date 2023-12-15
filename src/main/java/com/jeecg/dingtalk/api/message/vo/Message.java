@@ -13,7 +13,7 @@ public class Message<T extends SuperMessage> {
     /**
      * 发送消息时使用的微应用的AgentID。
      */
-    private Integer agent_id;
+    private String agent_id;
     /**
      * 接收者的userid列表，最大用户列表长度100。
      */
@@ -33,11 +33,16 @@ public class Message<T extends SuperMessage> {
     private T msg;
 
     public Message(Integer agent_id, T msg) {
+        this.agent_id = String.valueOf(agent_id);
+        this.msg = msg;
+    }
+
+    public Message(String agent_id, T msg) {
         this.agent_id = agent_id;
         this.msg = msg;
     }
 
-    public Integer getAgent_id() {
+    public String getAgent_id() {
         return agent_id;
     }
 
